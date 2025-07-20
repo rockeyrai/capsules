@@ -55,6 +55,7 @@ useEffect(() => {
   const firstItem = gridItems[0];
   if (firstItem) {
     moveToElement(firstItem);
+
   }
 
   container.addEventListener("mousemove", moveHighlight);
