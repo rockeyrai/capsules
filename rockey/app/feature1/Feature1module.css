@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Host Grotesk", sans-serif;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  font-size: 7vw;
+  font-weight: 800;
+  line-height: 1;
+}
+
+p {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+section {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #141414;
+  color: #e3e3db;
+  overflow: hidden;
+}
+
+.hero {
+  flex-direction: column;
+  transition: background-color 0.3s ease;
+}
+
+.hero-header {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  will-change: transform, opacity;
+}
+
+.animated-icons {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  will-change: transform;
+  z-index: 2;
+}
+
+.animated-icon {
+  flex: 1;
+  aspect-ratio: 1;
+  will-change: transform;
+}
+
+.animated-text {
+  position: relative;
+  max-width: 100px;
+  text-align: center;
+  color: #141414;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.text-segment {
+  opacity: 0;
+}
+
+.placeholder-icon {
+    margin-top: -10px;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    will-change: transform;
+    visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 12vw;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .hero-header{
+    top:45%;
+    width: 100%;
+  }
+
+  .placeholder-icon{
+    margin-top: -4px;
+    width: 30px;
+    height: 30px;
+  }
+}
