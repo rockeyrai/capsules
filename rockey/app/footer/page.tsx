@@ -13,6 +13,7 @@ import {
   MouseConstraint,
   World,
   Events,
+  Vector,
 } from "matter-js";
 import "./FooterModule.css";
 
@@ -108,7 +109,7 @@ const Page = () => {
 
       objects.forEach((obj, index) => {
         const objRect = obj.getBoundingClientRect();
-        const containerBounds = container.getBoundingClientRect();
+        // const containerBounds = container.getBoundingClientRect();
         
         // Calculate relative position within container
         const relativeRect = {
@@ -165,8 +166,8 @@ const Page = () => {
 
       // Mouse interaction setup
       const mouse = Mouse.create(container);
-      mouse.element.removeEventListener("mousewheel", mouse.mousewheel);
-      mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
+      // mouse.element.removeEventListener("mousewheel", mouse.mousewheel);
+      // mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
 
       mouseConstraint = MouseConstraint.create(engine, {
         mouse,
@@ -225,14 +226,14 @@ const Page = () => {
       container.addEventListener("mouseleave", () => {
         if (mouseConstraint.constraint) {
           mouseConstraint.constraint.bodyB = null;
-          mouseConstraint.constraint.pointB = null;
+    mouseConstraint.constraint.pointB = Vector.create(0, 0);
         }
       });
 
       document.addEventListener("mouseup", () => {
         if (mouseConstraint.constraint) {
           mouseConstraint.constraint.bodyB = null;
-          mouseConstraint.constraint.pointB = null;
+          mouseConstraint.constraint.pointB = Vector.create(0, 0);;
         }
       });
 
