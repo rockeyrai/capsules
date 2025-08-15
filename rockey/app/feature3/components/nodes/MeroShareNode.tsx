@@ -19,7 +19,7 @@ export default function MeroShareNode({ id }: NodeProps) {
   // Change handle positions on mobile
   const targetPosition = windowWidth < 768 ? Position.Top : Position.Left;
   const sourcePosition = windowWidth < 768 ? Position.Bottom : Position.Right;
-
+console.log("sandip test")
   return (
     <div className="bg-yellow-100 border p-4 rounded-md w-56">
       <div className="font-bold mb-2">Mero Share</div>
