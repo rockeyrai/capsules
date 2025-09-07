@@ -19,7 +19,7 @@ p {
 nav,
 footer {
   position: fixed;
-  width: 100vw;
+  width: 100%;
   padding: 1rem;
   display: flex;
   justify-content: space-between;

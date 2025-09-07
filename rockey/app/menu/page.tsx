@@ -1,47 +1,62 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
+import "./MenuModule.css";
+import gsap from "gsap";
+import CustomEase from "gsap/CustomEase";
+import SplitText from "gsap/SplitText";
+import Lenis from "@studio-freight/lenis";
 
-const Menu = () => {
-  document.addEventListener("DOMContentLoaded", () => {
+const Menu: React.FC = () => {
+  useEffect(() => {
     gsap.registerPlugin(CustomEase, SplitText);
-    CustomeEase.create("hop", ".87,0,.13,1");
+    CustomEase.create("hop", ".87,0,.13,1");
 
     const lenis = new Lenis();
-    function raf(time) {
-      lenis.raf(tiem);
+    function raf(time: number) {
+      lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
 
-    const textContainers = document.querySelectorAll(".menu-col");
-    let splitTextByContainer = [];
+    const textContainers = document.querySelectorAll<HTMLElement>(".menu-col");
+    const splitTextByContainer: any[][] = [];
 
     textContainers.forEach((container) => {
-      const textElements = container.querySelectorAll("a, p");
-      let containerSplits = [];
+      const textElements = container.querySelectorAll<HTMLElement>("a, p");
+      const containerSplits: any[] = [];
 
       textElements.forEach((element) => {
-        const split = SplitText.create(element, {
+        const split =  SplitText.create(element, {
           type: "lines",
-          mask: "lines",
+          mask:"lines",
           linesClass: "line",
         });
-        containerSplites.push(split);
+        containerSplits.push(split);
 
         gsap.set(split.lines, { y: "-110%" });
       });
+
       splitTextByContainer.push(containerSplits);
     });
 
-    const container = document.querySelector(".container");
-    const menuToggleBtn = document.querySelector(".menu-toggle-bth");
-    const menuOverlay = document.querySelector(".menu-overlay");
-    const menuOverlayContainer = document.querySelector(
+    const container = document.querySelector<HTMLElement>(".containers");
+    const menuToggleBtn = document.querySelector<HTMLElement>(
+      ".menu-toggle-btn"
+    );
+    const menuOverlay = document.querySelector<HTMLElement>(".menu-overlay");
+    const menuOverlayContainer = document.querySelector<HTMLElement>(
       ".menu-overlay-content"
     );
-    const menuMediaWrapper = document.querySelector(".menu-media-wrapper");
-    const copyContainers = document.querySelectorAll(".menu-col");
-    const menuToggleLabel = document.querySelector(".menu-toggle-label p");
-    const hamburgerIcon = document.querySelector(".menu-hamburger-icon");
+    const menuMediaWrapper =
+      document.querySelector<HTMLElement>(".menu-media-wrapper");
+    const copyContainers =
+      document.querySelectorAll<HTMLElement>(".menu-col");
+    const menuToggleLabel = document.querySelector<HTMLElement>(
+      ".menu-toggle-label p"
+    );
+    const hamburgerIcon = document.querySelector<HTMLElement>(
+      ".menu-hamburger-icon"
+    );
 
     let isMenuOpen = false;
     let isAnimating = false;
@@ -63,7 +78,7 @@ const Menu = () => {
           .to(
             container,
             {
-              y: "100svh",
+              y: "100vh",
               duration: 1,
               ease: "hop",
             },
@@ -97,8 +112,9 @@ const Menu = () => {
             },
             "<"
           );
+
         splitTextByContainer.forEach((containerSplits) => {
-          const copyLines = containerSplite.flatMap((split) => split.lines);
+          const copyLines = containerSplits.flatMap((split) => split.lines);
 
           tl.to(
             copyLines,
@@ -125,7 +141,7 @@ const Menu = () => {
         const tl = gsap.timeline();
 
         tl.to(container, {
-          y: "0svh",
+          y: "0vh",
           duration: 1,
           ease: "hop",
         })
@@ -166,33 +182,38 @@ const Menu = () => {
             "<"
           );
 
-          tl.call(()=>{
-            splitTextByContainer.forEach((containerSplits)=>{
-                const copyLines = containerSplits.flatMap((split)=>split.lines)
-                gsap.set(copyLines, {y:"-110%"});
-            })
+        tl.call(() => {
+          splitTextByContainer.forEach((containerSplits) => {
+            const copyLines = containerSplits.flatMap((split) => split.lines);
+            gsap.set(copyLines, { y: "-110%" });
+          });
 
-            gsap.set(copyContainers,{opacity:1})
-            gsap.set(menuMediaWrapper,{opacity:0});
+          gsap.set(copyContainers, { opacity: 1 });
+          gsap.set(menuMediaWrapper, { opacity: 0 });
 
-            isAnimating = false;
-            lenis.start();
-          })
-          isMenuOpen = false
+          isAnimating = false;
+          lenis.start();
+        });
+
+        isMenuOpen = false;
       }
     });
-  });
+
+    return () => {
+      menuToggleBtn?.removeEventListener("click", () => {});
+    };
+  }, []);
 
   return (
     <>
-      <nav>
+       <nav>
         <div className="menu-bar">
           <div className="menu-logo">
             <a href="#">
               <img src="/hero/image1.jpg" alt="just" />
             </a>
           </div>
-          <div className="menu-toggle-bth">
+          <div className="menu-toggle-btn">
             <div className="menu-toggle-label">
               <p>Menu</p>
             </div>
@@ -240,18 +261,18 @@ const Menu = () => {
               </div>
               <div className="menu-footer">
                 <div className="menu-col">
-                  <p>kirtipur, Kathmandu</p>
+                  <p>Kirtipur, Kathmandu</p>
                 </div>
                 <div className="menu-col">
-                  <p>40054, Townplaning</p>
+                  <p>40054, Townplanning</p>
                   <p>rockeyrai234@gmail.com</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </nav>
-      <div className="container">
+      </nav> 
+      <div className="containers mx-auto w-full">
         <section className="hero">
           <h1>Modern design system made that looks timeless</h1>
         </section>
@@ -259,7 +280,7 @@ const Menu = () => {
           <img src="/hero/image2.jpg" alt="image 2" />
         </section>
         <section className="outro">
-          <h1>Lets buld someting quiketly icones</h1>
+          <h1>Let’s build something quickly iconic</h1>
         </section>
       </div>
     </>
