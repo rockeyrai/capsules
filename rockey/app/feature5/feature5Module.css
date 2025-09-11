@@ -1,128 +1,130 @@
 h1 {
-    text-transform: uppercase;
-    font-size: 6rem;
-    font-weight: 900;
-    line-height: 0.85;
-    letter-spacing: -0.02rem;
+  text-transform: uppercase;
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.02rem;
 }
 
 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 nav {
-    position: fixed;
-    top: 2rem;
-    left: 50%;
-    transform:translateY(-50%);
-    width: 35%;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255,255,25,0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rbga(255,255,255,0.1);
-    border-radius: 0.5rem;
-    z-index: 2;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  z-index: 20;
 }
 
 nav img {
-    width: 1.5rem;
+  width: 1.5rem;
 }
 
 section {
-    position: relative;
-    width: 100%;
-    height: 100vsh;
-    background-color: #161616;
-    color: #fff;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #161616;
+  color: #fff;
+  overflow: hidden;
 }
 
 .intro,
 .outro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    text-align: center;
-    width: 50%;
-    z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 50%;
+  z-index: 1;
 }
 
 .spotlight {
-    background-color: #101010;
+  background-color: #101010;
 }
 
 .spotlight-images {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 300vsh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transform: translateY(5%);
-    will-change: transform;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateY(5%);
+  will-change: transform;
 }
 
 .row {
-    width: 100%;
-    padding: 2rem;
-    display: flex;
-    gap: 2rem;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
 }
 
 .img {
-    flex:1;
-    aspect-ratio: 5/7;
-    overflow: hidden;
+  flex: 1;
+  aspect-ratio: 5/7;
+  overflow: hidden;
+  background: #111;
 }
 
-.img img{
-    opacity: 0.5;
-    filter: saturate(0);
+.img img {
+  opacity: 0.5;
+  filter: saturate(0);
 }
 
 .mask-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100svh;
-    -webkit-mask:url(/handsvg.svg) center/contain no-repent;
-    mask:url(/handsvg.svg) center/container no-repeat;
-    -webkit-mask-size:0%;
-    mask-size: 0%;
-    overflow:hidden;
-    z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  -webkit-mask: url(/hero/hand_svg.svg) center/contain no-repeat;
+  mask: url(/hero/hand_svg.svg) center/contain no-repeat;
+  -webkit-mask-size: 0%;
+  mask-size: 0%;
+  overflow: hidden;
+  z-index: 10;
 }
 
 .mask-container .mask-img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-@media (max-width:700px){
-    h1{
-        font-size: 4rem;
-    }
-    nav, .header {
-        width: calc(100% - 4rem);
-    }
+@media (max-width: 700px) {
+  h1 {
+    font-size: 4rem;
+  }
+  nav,
+  .header {
+    width: calc(100% - 4rem);
+  }
 
-    .spotlight-images{
-        width: 200vw;
-        left: -25vw;
-    }
+  .spotlight-images {
+    width: 200vw;
+    left: -25vw;
+  }
 }
