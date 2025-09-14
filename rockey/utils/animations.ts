@@ -1,28 +1,44 @@
 // utils/animations.ts
 import gsap from "gsap";
 
-export const animatePageIn = () => {
-  const banners = [
+const getBanners = () =>
+  [
     document.getElementById("banner-1"),
     document.getElementById("banner-2"),
     document.getElementById("banner-3"),
     document.getElementById("banner-4"),
     document.getElementById("banner-5"),
-  ].filter(Boolean); // remove null values
+  ].filter(Boolean) as HTMLElement[];
 
-  if (banners.length === 5) {
-    const tl = gsap.timeline();
+// Animate UP (before new page render)
+export const animatePageOut = async () => {
+  const banners = getBanners();
+  if (banners.length !== 5) return;
 
-    tl.set(banners, { yPercent: 0 })
-      .to(banners, {
-        yPercent: 100,
-        stagger: 0.2,
-        ease: "power2.inOut",
-      })
+  return new Promise<void>((resolve) => {
+    gsap.timeline({
+      onComplete: () => resolve(),
+    })
+      .set(banners, { yPercent: 100 })
       .to(banners, {
         yPercent: 0,
         stagger: 0.2,
         ease: "power2.inOut",
+        duration: 0.5,
       });
-  }
+  });
+};
+
+// Animate DOWN (after new page render)
+export const animatePageIn = () => {
+  const banners = getBanners();
+  if (banners.length !== 5) return;
+
+  gsap.timeline()
+    .to(banners, {
+      yPercent: 100,
+      stagger: 0.2,
+      ease: "power2.inOut",
+      duration: 0.6,
+    });
 };

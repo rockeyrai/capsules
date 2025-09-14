@@ -36,7 +36,7 @@ const Page: React.FC = () => {
   }, []);
 
   return (
-    <div className='h-full w-full bg-[#212121] ' style={{ padding: 20 }}>
+    <div className='h-full w-full bg-[#212121] '>
       {/* <h2>Decrypted Output:</h2>
       {decryptedData ? (
         <pre>{JSON.stringify(decryptedData, null, 2)}</pre>
