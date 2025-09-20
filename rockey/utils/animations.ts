@@ -11,11 +11,18 @@ const getBanners = () =>
   ].filter(Boolean) as HTMLElement[];
 
 // Animate UP (before new page render)
-export const animatePageOut = async () => {
+export const animatePageOut = async (enabled: boolean = true) => {
   const banners = getBanners();
   if (banners.length !== 5) return;
 
   return new Promise<void>((resolve) => {
+    if (!enabled) {
+      // Hide instantly
+      gsap.set(banners, { yPercent: 100 });
+      resolve();
+      return;
+    }
+
     gsap.timeline({
       onComplete: () => resolve(),
     })
@@ -30,9 +37,15 @@ export const animatePageOut = async () => {
 };
 
 // Animate DOWN (after new page render)
-export const animatePageIn = () => {
+export const animatePageIn = (enabled: boolean = true) => {
   const banners = getBanners();
   if (banners.length !== 5) return;
+
+  if (!enabled) {
+    // Hide instantly
+    gsap.set(banners, { yPercent: 100 });
+    return;
+  }
 
   gsap.timeline()
     .to(banners, {

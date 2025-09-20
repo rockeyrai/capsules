@@ -8,8 +8,7 @@ const Page_template = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Whenever pathname changes → animate banners down
-    animatePageIn();
+    animatePageIn(false);
   }, [pathname]);
 
   return (
