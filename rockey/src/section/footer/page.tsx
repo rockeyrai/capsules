@@ -283,7 +283,7 @@ const Page = () => {
     };
 
     if (animateOnScroll) {
-      document.querySelectorAll("section").forEach((section) => {
+      document.querySelectorAll(".footer-section").forEach((section) => {
         const container = section.querySelector(
           ".object-container"
         ) as HTMLElement | null;
@@ -318,10 +318,10 @@ const Page = () => {
 
   return (
     <div>
-      <section className="hero">
+      <section className="footer-section hero">
         <h1>Scroll down to break the laws of web designers</h1>
       </section>
-      <section className="footer">
+      <section className="footer-section footer">
         <div className="object-container">
           <div className="object">
             <p>Codegrid</p>

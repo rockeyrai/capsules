@@ -3,6 +3,9 @@
 import { usePageTransition } from "@/utils/PageButton";
 import { usePathname } from "next/navigation";
 import HeroPage from "../section/hero/page";
+import HeroOne from "../section/hero1/page";
+import Menu from "../section/menu/page";
+import TestPage from "../section/test2/page";
 
 const routes = [
   { path: "/", name: "Home" },
@@ -20,7 +23,12 @@ export default function Navbar() {
   const transitionTo = usePageTransition();
   // onClick={() => transitionTo(route.path)}
 
-  return <>
-  <HeroPage/>
-  </>;
+  return (
+    <>
+    {/* <Menu/> */}
+    <HeroOne/>
+      {/* <HeroPage/> */}
+      {/* <TestPage/> */}
+    </>
+  );
 }

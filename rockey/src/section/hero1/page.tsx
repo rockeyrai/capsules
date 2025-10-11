@@ -4,7 +4,8 @@ import { ArrowRight, Menu } from "lucide-react";
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
-import "./Hero1Module.css";
+import styles from "./Hero1Module.module.css";
+
 const HeroOne: React.FC = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -13,26 +14,58 @@ const HeroOne: React.FC = () => {
 
     document.fonts.ready.then(() => {
       function createSplitTexts(
-        elements: { key: string; selector: string; type: "chars" | "lines" }[]
+        elements: readonly {
+          key: string;
+          selector: string;
+          type: "chars" | "lines";
+        }[]
       ) {
         const splits: Record<string, any> = {};
         elements.forEach(({ key, selector, type }) => {
           const config: any = { type, mask: type };
-          if (type === "chars") config.charsClass = "char";
-          if (type === "lines") config.linesClass = "line";
+          if (type === "chars") config.charsClass = styles.hero1Char;
+          if (type === "lines") config.linesClass = styles.hero1Line;
           splits[key] = SplitText.create(selector, config);
         });
         return splits;
       }
 
-      const splitElements = [
-        { key: "logoChars", selector: ".preloader-logo h1", type: "chars" },
-        { key: "footerLines", selector: ".preloader-footer p", type: "lines" },
-        { key: "headerChars", selector: ".header h1", type: "chars" },
-        { key: "heroFooterH3", selector: ".hero-footer h3", type: "lines" },
-        { key: "heroFooterP", selector: ".hero-footer p", type: "lines" },
-        { key: "btnLabels", selector: ".btn-label span", type: "lines" },
-      ] as const;
+      const splitElements: {
+        key: string;
+        selector: string;
+        type: "lines" | "chars";
+      }[] = [
+        {
+          key: "logoChars",
+          selector: `.${styles.hero1PreloaderLogo} h1`,
+          type: "chars",
+        },
+        {
+          key: "footerLines",
+          selector: `.${styles.hero1PreloaderFooter} p`,
+          type: "lines",
+        },
+        {
+          key: "headerChars",
+          selector: `.${styles.hero1Header} h1`,
+          type: "chars",
+        },
+        {
+          key: "heroFooterH3",
+          selector: `.${styles.hero1Footer} h3`,
+          type: "lines",
+        },
+        {
+          key: "heroFooterP",
+          selector: `.${styles.hero1Footer} p`,
+          type: "lines",
+        },
+        {
+          key: "btnLabels",
+          selector: `.${styles.hero1BtnLabel} span`,
+          type: "lines",
+        },
+      ];
 
       const splits = createSplitTexts(splitElements);
 
@@ -48,8 +81,10 @@ const HeroOne: React.FC = () => {
         ],
         { y: "100%" }
       );
-      gsap.set(".btn-icon", { clipPath: "circle(0% at 50% 50%)" });
-      gsap.set(".btn", { scale: 0 });
+      gsap.set(`.${styles.hero1BtnIcon}`, {
+        clipPath: "circle(0% at 50% 50%)",
+      });
+      gsap.set(`.${styles.hero1Btn}`, { scale: 0 });
 
       function animateProgress(duration = 4) {
         const tl = gsap.timeline();
@@ -63,7 +98,7 @@ const HeroOne: React.FC = () => {
             : Math.min(currentProgress + Math.random() * 0.3 + 0.1, 0.9);
           currentProgress = targetProgress;
 
-          tl.to(".preloader-progress-bar", {
+          tl.to(`.${styles.hero1PreloaderProgressBar}`, {
             scaleX: targetProgress,
             duration: duration / counterSteps,
             ease: "power2.out",
@@ -91,7 +126,9 @@ const HeroOne: React.FC = () => {
           "0.25"
         )
         .add(animateProgress(), "<")
-        .set(".preloader-progress", { backgroundColor: "var(--base-300)" })
+        .set(`.${styles.hero1PreloaderProgress}`, {
+          backgroundColor: "var(--base-300)",
+        })
         .to(
           splits.logoChars.chars,
           {
@@ -113,7 +150,7 @@ const HeroOne: React.FC = () => {
           "<"
         )
         .to(
-          ".preloader-progress",
+          `.${styles.hero1PreloaderProgress}`,
           {
             opacity: 0,
             duration: 0.5,
@@ -122,16 +159,16 @@ const HeroOne: React.FC = () => {
           "-=0.25"
         )
         .to(
-          ".preloader-mask",
+          `.${styles.hero1PreloaderMask}`,
           {
-            scale: 5,
+            scale: 10,
             duration: 3,
             ease: "power1.inOut",
           },
           "<"
         )
         .to(
-          ".hero-img",
+          `.${styles.hero1Img}`,
           {
             scale: 1,
             duration: 1.5,
@@ -159,14 +196,14 @@ const HeroOne: React.FC = () => {
           },
           "-=1.5"
         )
-        .to(".btn", {
+        .to(`.${styles.hero1Btn}`, {
           scale: 1,
           duration: 1,
           ease: "power4.out",
           onStart: () => {
             gsap
               .timeline()
-              .to(".btn-icon", {
+              .to(`.${styles.hero1BtnIcon}`, {
                 clipPath: "circle(100% at 50% 50%)",
                 duration: 1,
                 ease: "power2.out",
@@ -185,52 +222,52 @@ const HeroOne: React.FC = () => {
 
   return (
     <>
-      <div className="preloader-progress">
-        <div className="preloader-progress-bar"></div>
-        <div className="preloader-logo">
+      <div className={styles.hero1PreloaderProgress}>
+        <div className={styles.hero1PreloaderProgressBar}></div>
+        <div className={styles.hero1PreloaderLogo}>
           <h1>Obsidian</h1>
         </div>
       </div>
-      <div className="preloader-mask"></div>
-      <div className="preloader-content">
-        <div className="preloader-footer">
+      <div className={styles.hero1PreloaderMask}></div>
+      <div className={styles.hero1PreloaderContent}>
+        <div className={styles.hero1PreloaderFooter}>
           <p>
             Space unfolds in light and shadow, where structure finds its quiet
             rhythm, and time aligns in harmony.
           </p>
         </div>
       </div>
-      <div className="containers">
-        <section className="hero">
-          <div className="hero-inner">
-            <div className="hero-img">
-              <img src="/hero/image1.jpg" alt="hero" />
+      <div className={styles.heroContainers}>
+        <section className={styles.hero1}>
+          <div className={styles.hero1Inner}>
+            <div className={styles.hero1Img}>
+              <img src="/hero/image1.jpg" alt="hero1" />
             </div>
-            <div className="hero-content">
-              <div className="header">
+            <div className={styles.hero1Content}>
+              <div className={styles.hero1Header}>
                 <h1>Obsidian</h1>
               </div>
-              <div className="contact-btn">
-                <div className="btn">
-                  <div className="btn-label">
+              <div className={styles.contactHeroBtn}>
+                <div className={styles.hero1Btn}>
+                  <div className={styles.hero1BtnLabel}>
                     <span>Contact</span>
                   </div>
-                  <div className="btn-icon">
-                    <ArrowRight className="arrow-forward-sharp" />
+                  <div className={styles.hero1BtnIcon}>
+                    <ArrowRight className={styles.hero1ArrowForwardSharp} />
                   </div>
                 </div>
               </div>
-              <div className="menu-btn">
-                <div className="btn">
-                  <div className="btn-label">
+              <div className={styles.hero1MenuHeroBtn}>
+                <div className={styles.hero1Btn}>
+                  <div className={styles.hero1BtnLabel}>
                     <span>Menu</span>
                   </div>
-                  <div className="btn-icon">
-                    <Menu className="menu-sharp" />
+                  <div className={styles.hero1BtnIcon}>
+                    <Menu className={styles.hero1MenuSharp} />
                   </div>
                 </div>
               </div>
-              <div className="hero-footer">
+              <div className={styles.hero1Footer}>
                 <h3>Space defined through light and silence</h3>
                 <p>
                   Geometry and balance converge, creating environments that

@@ -27,14 +27,14 @@ h1 {
     font-size: 6rem;
     font-weight: 500;
     letter-spacing: -0.1rem;
-    line-height: 1.1;
+    hero-line-height: 1.1;
 }
 
 h2 {
     font-size: 1.75rem;
     font-weight: 500;
     letter-spacing: -0.02rem;
-    line-height:1.1;
+    hero-line-height:1.1;
 }
 
 a,
@@ -44,7 +44,7 @@ a,
     font-size: 1rem;
     font-weight: 500;
     overflow: hidden;
-    line-height: 1;
+    hero-line-height: 1;
 }
 
 .hero {
@@ -66,18 +66,18 @@ a,
     transform: scaleY(0%);
 }
 
-.counter {
+.hero-counter {
     position:fixed;
     right: 3rem;
     bottom: 2rem;
     display:flex;
     height: 120px;
     font-size: 120px;
-    line-height: 150px;
+    hero-line-height: 150px;
     clip-path: polygon(0 0, 100% 0, 100% 120px, 0 120px);
 }
 
-.digit {
+.hero-digit {
     position: relative;
     top:-15px;
 }
@@ -92,7 +92,7 @@ a,
     right: -15px;
 }
 
-.images-container {
+.hero-images-container {
     position: absolute;
     top:0;
     left:0;
@@ -100,7 +100,7 @@ a,
     height: 100%;
 }
 
-.images-container .img {
+.hero-images-container .img {
     position: absolute;
     top: 1.5rem;
     left: 1.5rem;
@@ -110,18 +110,18 @@ a,
     overflow: hidden;
 }
 /* shift the image to botom right corner after transition begin  */
-.images-container .img.animate-out {
+.hero-images-container .img.animate-out {
     top:unset;
     left:unset;
     bottom: 1.5rem;
     right:1.5rem;
 }
 
-.divider {
+.hero-divider {
     background-color: var(--stroke);
 }
 
-nav {
+.hero-nav {
     position: relative;
     width: 100%;
     height: 5rem;
@@ -131,24 +131,24 @@ nav {
     align-items: center;
 }
 
-.logo-name a{
+.hero-logo-name a{
     font-size: 1.5rem;
 }
 
-.nav-items, .links {
+.hero-nav-items, .hero-links {
     display: flex;
     align-items: center;
 }
 
-.nav-items {
+.hero-nav-items {
     gap:7.5rem;
 }
 
-.links {
+.hero-links {
     gap:0.5rem;
 }
 
-nav .divider {
+.hero-nav .hero-divider {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -158,7 +158,7 @@ nav .divider {
     transform: scaleX(0%);
 }
 
-.sidebar {
+.hero-sidebar {
     position:absolute;
     top: 0;
     left: 0;
@@ -170,13 +170,13 @@ nav .divider {
     align-items: flex-start;
 }
 
-.sidebar .logo {
+.hero-sidebar .hero-logo {
     width: 2rem;
     aspect-ratio: 1;
     transform: scale(0);
 }
 
-.sidebar .divider {
+.hero-sidebar .hero-divider {
     position: absolute;
     right: 0;
     top: 0;
@@ -186,7 +186,7 @@ nav .divider {
     transform: scaleY(0%);
 }
 
-.header {
+.hero-header {
     position: absolute;
     top: 35%;
     left: 7.5rem;
@@ -194,7 +194,7 @@ nav .divider {
     width: 60%;
 }
 
-.site-info {
+.hero-site-info {
     position: absolute;
     right: 1.5rem;
     top: 60%;
@@ -205,14 +205,14 @@ nav .divider {
     gap:1rem;
 }
 
-.site-info .divider {
+.hero-site-info .hero-divider {
     width: 100%;
     height: 1px;
     transform-origin: left;
     transform: scaleX(0%);
 }
 
-.site-info-copy {
+.hero-site-info-copy {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -224,11 +224,11 @@ nav .divider {
     left: 7.5rem;
 }
 
-.line {
+.hero-line {
     overflow: hidden;
 }
 
-.line span {
+.hero-line span {
     position: relative;
     display: block;
     transform: translateY(125%);
@@ -245,20 +245,20 @@ nav .divider {
         font-size: 1.5rem;
     }
 
-    nav .links {
+    .hero-nav .hero-links {
         display: none;
     }
 
-    .images-container .img {
+    .hero-images-container .img {
         width: 30%;
     }
 
-    .header {
+    .hero-header {
         top: 25%;
         width: calc(100% - 12.5rem);
     }
 
-    .site-info {
+    .hero-site-info {
         width: calc(100% -12.5rem);
         right: unset;
         left: 7.5rem;

@@ -4,13 +4,13 @@
   --base-300: #f5f5f5;
 }
 
-.containers {
+.heroContainers {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.hero {
+.hero1 {
   position: relative;
   width: 100%;
   height: 100svh;
@@ -18,7 +18,7 @@
   background-color: var(--base-100);
 }
 
-.hero-inner {
+.hero1Inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -26,7 +26,7 @@
   overflow: hidden;
 }
 
-.hero-img {
+.hero1Img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -34,7 +34,7 @@
   will-change: transform;
 }
 
-.hero-content {
+.hero1Content {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -42,14 +42,14 @@
   color: var(--base-300);
 }
 
-.header h1 {
+.hero1Header h1 {
   font-size: 12rem;
   font-weight: 500;
   letter-spacing: -0.25rem;
   line-height: 1;
 }
 
-.hero-footer {
+.hero1Footer {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -60,45 +60,45 @@
   align-items: center;
 }
 
-.hero-footer h3 {
+.hero1Footer h3 {
   font-size: 2rem;
   font-weight: 400;
   line-height: 1.1;
   width: 25%;
 }
 
-.hero-footer p {
+.hero1Footer p {
   width: 25%;
   text-align: right;
   opacity: 0.5;
 }
 
-.contact-btn {
+.contactHeroBtn {
   position: absolute;
   top: 2rem;
   right: 2rem;
 }
 
-.menu-btn {
+.hero1MenuHeroBtn {
   position: absolute;
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.btn {
+.hero1Btn {
   position: relative;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.25rem 0.25rem  0.25rem 1.5rem; 
+  padding: 0.25rem 0.25rem 0.25rem 1.5rem;
   border-radius: 4rem;
   background-color: var(--base-300);
   color: var(--base-100);
   will-change: transform;
 }
 
-.btn-icon {
+.hero1BtnIcon {
   width: 2.5rem;
   height: 2.5rem;
   background-color: var(--base-100);
@@ -107,18 +107,18 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  border-radius: 100%; /* cleaner than 100% */
+  border-radius: 50%;
 }
 
-.btn-label span {
+.hero1BtnLabel span {
   font-size: 0.9rem;
   font-weight: 450;
   line-height: 1;
 }
 
-.preloader-progress,
-.preloader-mask,
-.preloader-content {
+.hero1PreloaderProgress,
+.hero1PreloaderMask,
+.hero1PreloaderContent {
   position: fixed;
   top: 0;
   left: 0;
@@ -127,13 +127,13 @@
   pointer-events: none;
 }
 
-.preloader-progress {
+.hero1PreloaderProgress {
   background-color: var(--base-200);
   z-index: 1;
   will-change: opacity;
 }
 
-.preloader-progress-bar {
+.hero1PreloaderProgressBar {
   position: absolute;
   top: 0;
   left: 50%;
@@ -145,7 +145,7 @@
   will-change: transform;
 }
 
-.preloader-logo {
+.hero1PreloaderLogo {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -156,7 +156,7 @@
   z-index: 2;
 }
 
-.preloader-logo h1 {
+.hero1PreloaderLogo h1 {
   position: relative;
   color: var(--base-300);
   font-size: 3rem;
@@ -164,34 +164,34 @@
   line-height: 1;
 }
 
-.preloader-mask {
+.hero1PreloaderMask {
   background-color: var(--base-100);
   mask: linear-gradient(var(--base-300), var(--base-300)), url("/hero/capsule.svg") center/50% no-repeat;
-  mask-composite: subtract; /* better cross-browser */
+  mask-composite: subtract;
   will-change: transform;
   z-index: 1;
 }
 
-.preloader-content {
+.hero1PreloaderContent {
   z-index: 2;
 }
 
-.preloader-footer {
+.hero1PreloaderFooter {
   position: absolute;
   bottom: 4rem;
   left: 50%;
-  transform: translateX(-50%); /* fixed double parentheses */
+  transform: translateX(-50%);
   width: 30%;
   text-align: center;
 }
 
-.preloader-footer p {
+.hero1PreloaderFooter p {
   color: var(--base-300);
   opacity: 0.5;
 }
 
-.line,
-.char { /* fixed selector (.char was missing a dot) */
+.hero1Line,
+.hero1Char {
   position: relative;
   padding-bottom: 0.2rem;
   margin-bottom: -0.2rem;
@@ -200,11 +200,11 @@
 
 /* Responsive */
 @media (max-width: 700px) {
-  .hero-inner {
+  .hero1Inner {
     border-radius: 3rem;
   }
 
-  .header h1 {
+  .hero1Header h1 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -215,46 +215,44 @@
     letter-spacing: 0;
   }
 
-  .hero-footer {
+  .hero1Footer {
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
   }
 
-  .hero-footer h3,
-  .hero-footer p {
+  .hero1Footer h3,
+  .hero1Footer p {
     width: 100%;
     text-align: left;
   }
 
-  .hero-footer h3 {
+  .hero1Footer h3 {
     font-size: 1.25rem;
   }
 
-  .menu-btn {
-    position: absolute;
+  .hero1MenuHeroBtn {
     top: 2rem;
     left: 2rem;
     transform: translateX(0%);
   }
 
-  .preloader-progress-bar {
+  .hero1PreloaderProgressBar {
     left: 0%;
     width: 100%;
     transform: translateX(0%) scaleX(0);
   }
 
-  .preloader-logo h1 {
+  .hero1PreloaderLogo h1 {
     font-size: 2rem;
   }
 
-  .preloader-mask {
-    mask: linear-gradient(var(--base-300), var(--base-300)),
-      url("/hero/capsule.svg") center/90% no-repeat; /* fixed file extension + typo */
+  .hero1PreloaderMask {
+    mask: linear-gradient(var(--base-300), var(--base-300)), url("/hero/capsule.svg") center/90% no-repeat;
     mask-composite: subtract;
   }
 
-  .preloader-footer {
+  .hero1PreloaderFooter {
     width: 75%;
   }
 }

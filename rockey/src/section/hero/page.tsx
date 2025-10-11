@@ -18,7 +18,7 @@ const HeroPage = () => {
         linesClass:"line",
       })
 
-      const lines = element.querySelectorAll(".line");
+      const lines = element.querySelectorAll(".hero-line");
       lines.forEach((line)=>{
         const textContext = line.textContent;
         line.innerHTML = `<span>${textContext}</span>`
@@ -27,7 +27,7 @@ const HeroPage = () => {
     }
 
     const createCounterDigits = () => {
-      const counter1 = document.querySelector(".counter-1");
+      const counter1 = document.querySelector(".hero-counter-1");
       const num0 = document.createElement("div");
       num0.className = "num";
       num0.textContent = "0";
@@ -38,7 +38,7 @@ const HeroPage = () => {
       num1.textContent = "1";
       counter1?.appendChild(num1);
 
-      const counter2 = document.querySelector(".counter-2");
+      const counter2 = document.querySelector(".hero-counter-2");
       for (let i = 0; i < 10; i++) {
         const numDiv = document.createElement("div");
         numDiv.className = i === 1 ? "num num1offset2" : "num";
@@ -46,7 +46,7 @@ const HeroPage = () => {
         counter2?.appendChild(numDiv);
       }
 
-      const counter3 = document.querySelector(".counter-3");
+      const counter3 = document.querySelector(".hero-counter-3");
       for (let i = 0; i < 30; i++) {
         const numDiv = document.createElement("div");
         numDiv.className = "num";
@@ -126,9 +126,9 @@ const HeroPage = () => {
     setupTextSplitting();
     createCounterDigits();
 
-    animateCounter(document.querySelector(".counter-3"), 2.5);
-    animateCounter(document.querySelector(".counter-2"), 3);
-    animateCounter(document.querySelector(".counter-1"), 2, 1.5);
+    animateCounter(document.querySelector(".hero-counter-3"), 2.5);
+    animateCounter(document.querySelector(".hero-counter-2"), 3);
+    animateCounter(document.querySelector(".hero-counter-1"), 2, 1.5);
 
     const tl = gsap.timeline();
     gsap.set(".img", { scale: 0 });
@@ -151,7 +151,7 @@ const HeroPage = () => {
       "<"
     );
 
-    tl.to(".counter", {
+    tl.to(".hero-counter", {
       opacity: 0,
       duration: 0.3,
       delay:0.3,
@@ -162,7 +162,7 @@ const HeroPage = () => {
       },
     },);
 
-    tl.to(".sidebar .divider", {
+    tl.to(".hero-sidebar .hero-divider", {
       scaleY: "100%",
       duration: 1,
       ease: "power3.inOut",
@@ -170,7 +170,7 @@ const HeroPage = () => {
     });
 
     tl.to(
-      ["nav .divider", ".site-info .divider"],
+      ["nav .hero-divider", ".hero-site-info .hero-divider"],
       {
         scaleX: "100%",
         duration: 1,
@@ -180,14 +180,14 @@ const HeroPage = () => {
       "<"
     );
 
-    tl.to(".logo",{
+    tl.to(".hero-logo",{
       scale:1,
       duration:1,
       ease:"power4.inOut",
     },"<")
 
     tl.to(
-      [".logo-name a span", ".link a span", ".links p span", ".cta a span"],
+      [".hero-logo-name a span", ".link a span", ".hero-links p span", ".cta a span"],
       {
         y: "0%",
         duration: 1,
@@ -199,7 +199,7 @@ const HeroPage = () => {
     );
 
     tl.to(
-      [".header span", ".site-info span", ".hero-footer span"],
+      [".hero-header span", ".hero-site-info span", ".hero-footer span"],
       {
         y: "0%",
         duration: 1,
@@ -213,12 +213,12 @@ const HeroPage = () => {
     <div>
       <section className="hero">
         <div className="hero-bg"></div>
-        <div className="counter">
-          <div className="counter-1 digit"></div>
-          <div className="counter-2 digit"></div>
-          <div className="counter-3 digit"></div>
+        <div className="hero-counter">
+          <div className="hero-counter-1 hero-digit"></div>
+          <div className="hero-counter-2 hero-digit"></div>
+          <div className="hero-counter-3 hero-digit"></div>
         </div>
-        <div className="images-container">
+        <div className="hero-images-container">
           <div className="img">
             <img src="hero/image1.jpg" alt="Image 1" />
           </div>
@@ -266,13 +266,13 @@ const HeroPage = () => {
           </div>
         </div>
 
-        <nav>
-          <div className="logo-name">
+        <nav className="hero-nav">
+          <div className="hero-logo-name">
             <a href="#">Rock</a>
           </div>
 
-          <div className="nav-items">
-            <div className="links">
+          <div className="hero-nav-items">
+            <div className="hero-links">
               <a href="#">Home</a>
               <p></p>
               <a href="#">About</a>
@@ -283,24 +283,24 @@ const HeroPage = () => {
               Get Started
             </a>
           </div>
-          <div className="divider"></div>
+          <div className="hero-divider"></div>
         </nav>
 
-        <div className="sidebar">
-          <div className="logo">
+        <div className="hero-sidebar">
+          <div className="hero-logo">
             <img src="logo.png" alt="Logo" />
           </div>
 
-          <div className="divider"></div>
+          <div className="hero-divider"></div>
         </div>
 
-        <div className="header">
+        <div className="hero-header">
           <h1>Welcome to Rock</h1>
         </div>
-        <div className="site-info">
+        <div className="hero-site-info">
           <h2>A dazzling theme for your next project</h2>
-          <div className="divider"></div>
-          <div className="site-info-copy">
+          <div className="hero-divider"></div>
+          <div className="hero-site-info-copy">
             <p>Lorem ipsum dolor sit amet.</p>
             <p>Ut enim ad minim veniam, </p>
           </div>
