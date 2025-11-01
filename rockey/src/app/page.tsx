@@ -6,6 +6,7 @@ import HeroPage from "../section/hero/page";
 import HeroOne from "../section/hero1/page";
 import Menu from "../section/menu/page";
 import TestPage from "../section/test2/page";
+import Feature7 from "../section/feature7";
 
 const routes = [
   { path: "/", name: "Home" },
@@ -26,8 +27,9 @@ export default function Navbar() {
   return (
     <>
     {/* <Menu/> */}
-    <HeroOne/>
+    {/* <HeroOne/> */}
       {/* <HeroPage/> */}
+      <Feature7/>
       {/* <TestPage/> */}
     </>
   );
