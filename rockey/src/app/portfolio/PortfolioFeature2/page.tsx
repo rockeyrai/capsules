@@ -37,8 +37,9 @@ const PortfolioFeature2: React.FC = () => {
           linesClass: styles.line,
         });
 
-        split.lines?.forEach((line: HTMLElement) => {
-          line.innerHTML = `<span>${line.textContent}</span>`;
+        split.lines?.forEach((line) => {
+          const el = line as HTMLElement;
+          el.innerHTML = `<span>${el.textContent}</span>`;
         });
       });
     };
@@ -66,7 +67,7 @@ const PortfolioFeature2: React.FC = () => {
         const progress = self.progress;
 
         // === Phase 1 ===
-        if (progress > 0.25 && currentPhase === 0) {
+        if (progress > 0.2 && currentPhase === 0) {
           currentPhase = 1;
           gsap.to(`.${styles["col-1"]}`, {
             opacity: 0,
@@ -87,7 +88,7 @@ const PortfolioFeature2: React.FC = () => {
         }
 
         // === Phase 2 ===
-        if (progress > 0.5 && currentPhase === 1) {
+        if (progress > 0.4 && currentPhase === 1) {
           currentPhase = 2;
           gsap.to(`.${styles["col-2"]}`, {
             opacity: 0,
@@ -111,10 +112,45 @@ const PortfolioFeature2: React.FC = () => {
               delay: 0.5,
             }
           );
+          gsap.to(`.${styles["col-img-3"]} img`, {
+            scale: 1.25,
+            duration: 0.75,
+          });
         }
+        // === Phase 3 ===
 
+        if (progress > 0.6 && currentPhase === 2) {
+          currentPhase = 3;
+          gsap.to(`.${styles["col-3"]}`, {
+            opacity: 0,
+            scale: 0.75,
+            duration: 0.75,
+          });
+          gsap.to(`.${styles["col-4"]}`, { x: "0%", duration: 0.75 });
+          gsap.to(`.${styles["col-5"]}`, { y: "0%", duration: 0.75 });
+          gsap.to(
+            `.${styles["col-4"]} .${styles["col-content-wrapper"]} .${styles.line} span`,
+            {
+              y: "-125%",
+              duration: 0.75,
+            }
+          );
+          gsap.to(
+            `.${styles["col-4"]} .${styles["col-content-wrapper-2"]} .${styles.line} span`,
+            {
+              y: "0%",
+              duration: 0.75,
+              delay: 0.5,
+            }
+          );
+          gsap.to(`.${styles["col-img-4"]}`, {
+            clipPath: "polygon(0% 0%,100% 0%,100% 100%,0% 100%)",
+            duration: 0.75,
+          });
+          gsap.to(`.${styles["col-img-4"]} img`, { scale: 1, duration: 0.75 });
+        }
         // === Reset Phase 0 ===
-        if (progress < 0.25 && currentPhase > 0) {
+        if (progress < 0.2 && currentPhase > 0) {
           currentPhase = 0;
           gsap.to(`.${styles["col-1"]}`, {
             opacity: 1,
@@ -135,7 +171,7 @@ const PortfolioFeature2: React.FC = () => {
         }
 
         // === Back to Phase 1 ===
-        if (progress < 0.5 && currentPhase === 2) {
+        if (progress < 0.4 && currentPhase === 2) {
           currentPhase = 1;
           gsap.to(`.${styles["col-2"]}`, {
             opacity: 1,
@@ -160,6 +196,41 @@ const PortfolioFeature2: React.FC = () => {
             }
           );
         }
+
+        // === Back to Phase 2 ===
+        if (progress < 0.6 && currentPhase === 3) {
+          currentPhase = 1;
+          gsap.to(`.${styles["col-3"]}`, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.75,
+          });
+          gsap.to(`.${styles["col-4"]}`, { x: "100%", duration: 0.75 });
+          gsap.to(`.${styles["col-5"]}`, { y: "100%", duration: 0.75 });
+          gsap.to(
+            `.${styles["col-4"]} .${styles["col-content-wrapper"]} .${styles.line} span`,
+            {
+              y: "0%",
+              duration: 0.75,
+              delay: 0.5,
+            }
+          );
+          gsap.to(
+            `.${styles["col-4"]} .${styles["col-content-wrapper-2"]} .${styles.line} span`,
+            {
+              y: "-125%",
+              duration: 0.75,
+            }
+          );
+          gsap.to(`.${styles["col-img-4"]}`, {
+            clipPath: "polygon(0% 0%,100% 0%,100% 0%,0% 0%)",
+            duration: 0.75,
+          });
+          gsap.to(`.${styles["col-img-4"]} img`, {
+            scale: 1.25,
+            duration: 0.75,
+          });
+        }
       },
     });
 
@@ -173,7 +244,7 @@ const PortfolioFeature2: React.FC = () => {
     <>
       <section className={`${styles.intro} ${styles.section1}`}>
         <h1 className={styles["col-title"]}>
-          Take control of your investments with Portfolio Nepal
+          Dive into advanced portfolio features designed for smarter investing.{" "}
         </h1>
       </section>
 
@@ -230,18 +301,37 @@ const PortfolioFeature2: React.FC = () => {
 
           {/* Col-4 */}
           <div className={`${styles.col} ${styles["col-4"]}`}>
-            <div className={styles["col-img"]}>
+            <div className={`${styles["col-img"]} ${styles["col-img-3"]}`}>
               <div className={styles["col-img-wrapper"]}>
                 <img src="/hero/image3.jpg" alt="3rd image" />
               </div>
             </div>
+            <div className={`${styles["col-img"]} ${styles["col-img-4"]}`}>
+              <div className={styles["col-img-wrapper"]}>
+                <img src="/hero/image4.webp" alt="hero2" />
+              </div>
+            </div>
+          </div>
+
+          {/* Col-5 */}
+          <div className={`${styles.col} ${styles["col-5"]}`}>
+            <div className={styles["col-content"]}>
+              <div className={styles["col-content-wrapper"]}>
+                <h1 className={styles["col-title"]}>
+                  Automatic Sync with Meroshare
+                </h1>
+                <p className={styles["col-text"]}>
+                  Keep your portfolio up-to-date automatically by syncing with
+                  your Meroshare account, so you never miss a market move.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-
       </section>
 
       <section className={`${styles.outro} ${styles.section3}`}>
-        <h1>Timeless design begins with a conversation</h1>
+        <h1>New features coming soon — stay ahead of the market.</h1>
       </section>
     </>
   );
