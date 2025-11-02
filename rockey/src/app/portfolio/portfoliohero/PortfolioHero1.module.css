@@ -1,0 +1,317 @@
+:root {
+  --base-100: #181717;
+  --base-200: #292725;
+  --base-300: #f5f5f5;
+}
+
+.heroContainers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero1 {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  padding: 0rem;
+  background-color: var(--base-100);
+}
+
+.hero1Inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.hero1Img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  transform: scale(1.7);
+  will-change: transform;
+}
+
+.hero1Content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  color: var(--base-300);
+}
+
+.hero1Header {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  gap: 10;
+}
+
+.hero1Header h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 0.3rem;
+  line-height: 1;
+}
+.hero1Header p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  /* letter-spacing: -0.25rem; */
+  line-height: 1.5 rem;
+  width: 30%;
+  padding-left: 38px;
+}
+
+.hero1Footer {
+  position: absolute;
+  bottom: 3rem;
+  left: 0;
+  padding: 0 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to top instead of center */
+}
+
+.hero1Footer h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2;
+  width: 35%;
+  letter-spacing: -0.1rem;
+  text-align: left;
+}
+
+.hero1Footer p {
+  width: 25%;
+  text-align: right;
+  opacity: 0.5;
+}
+
+.contactHeroBtn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+
+.hero1MenuHeroBtn {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero1Btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0.25rem 0.25rem 1.5rem;
+  border-radius: 4rem;
+  background-color: var(--base-300);
+  color: var(--base-100);
+  will-change: transform;
+}
+
+.hero1BtnIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--base-100);
+  color: var(--base-300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  border-radius: 50%;
+}
+
+.hero1BtnLabel span {
+  font-size: 0.9rem;
+  font-weight: 450;
+  line-height: 1;
+}
+
+.hero1PreloaderProgress,
+.hero1PreloaderMask,
+.hero1PreloaderContent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  pointer-events: none;
+}
+
+.hero1PreloaderProgress {
+  background-color: var(--base-200);
+  z-index: 1;
+  will-change: opacity;
+}
+
+.hero1PreloaderProgressBar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 55%;
+  height: 100%;
+  background-color: var(--base-300);
+  transform-origin: left;
+  will-change: transform;
+}
+
+.hero1PreloaderLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+.hero1PreloaderLogo h1 {
+  position: relative;
+  color: var(--base-300);
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.hero1PreloaderMask {
+  background-color: var(--base-100);
+  mask: linear-gradient(var(--base-300), var(--base-300)),
+    url("/hero/capsule.svg") center/50% no-repeat;
+  mask-composite: subtract;
+  will-change: transform;
+  z-index: 1;
+}
+
+.hero1PreloaderContent {
+  z-index: 2;
+}
+
+.hero1PreloaderFooter {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  text-align: center;
+}
+
+.hero1PreloaderFooter p {
+  color: var(--base-300);
+  opacity: 0.5;
+}
+
+.hero1Line,
+.hero1Char {
+  position: relative;
+  padding-bottom: 0.2rem;
+  margin-bottom: -0.2rem;
+  will-change: transform;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .hero1Inner {
+    border-radius: 0rem;
+  }
+
+  .hero1Header {
+    padding-top: 0rem;
+    padding-left: 0rem;
+  }
+
+  .hero1Header h1 {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    letter-spacing: 0;
+    /* display: block;
+      visibility: hidden; */
+  }
+
+  .hero1Header p {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+    letter-spacing: 0;
+  }
+
+  .hero1Footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+    padding: 0 1.5rem;
+    width: 100%;
+    bottom: 2rem;
+    /* background-color: #181717; */
+    height: 100%;
+  }
+
+  .hero1Footer h3 {
+    position: absolute;
+    width: 80%;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .hero1Footer p {
+    position: absolute;
+    bottom: 0%;
+    right: 1rem;
+    transform: translate(0%, 0%);
+    width: 80%;
+    text-align: right;
+  }
+
+  .hero1Footer h3 {
+    font-size: 1.25rem;
+  }
+
+  .hero1MenuHeroBtn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero1PreloaderProgressBar {
+    left: 0%;
+    width: 100%;
+    transform: translateX(0%) scaleX(0);
+  }
+
+  .hero1PreloaderLogo h1 {
+    font-size: 2rem;
+  }
+
+  .hero1PreloaderMask {
+    mask: linear-gradient(var(--base-300), var(--base-300)),
+      url("/hero/capsule.svg") center/90% no-repeat;
+    mask-composite: subtract;
+  }
+
+  .hero1PreloaderFooter {
+    width: 75%;
+  }
+}

@@ -20,7 +20,7 @@ import "./feature5Module.css"
  * - Install packages: `npm i gsap @studio-freight/lenis`
  */
 
-const Page = () => {
+const Feature5 = () => {
   const spotlightRef = useRef(null);
   const spotlightImagesRef = useRef(null);
   const maskContainerRef = useRef(null);
@@ -219,4 +219,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Feature5;

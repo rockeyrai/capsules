@@ -7,7 +7,7 @@ import "./Feature2module.css";
 import { stories } from "./stories";
 import gsap from "gsap";
 
-const Page = () => {
+const Feature2 = () => {
   useEffect(() => {
     let activeStory = 0;
     const storyDuration = 4000;
@@ -326,4 +326,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Feature2;

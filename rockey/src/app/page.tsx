@@ -7,6 +7,11 @@ import HeroOne from "../section/hero1/page";
 import Menu from "../section/menu/page";
 import TestPage from "../section/test2/page";
 import Feature7 from "../section/feature7";
+import Feature6 from "../section/feature6/page";
+import Home from "../section/feature/page";
+import Feature1 from "../section/feature1/page";
+import FeatureFour from "../section/feature4/page";
+import Feature5 from "../section/feature5/page";
 
 const routes = [
   { path: "/", name: "Home" },
@@ -26,11 +31,16 @@ export default function Navbar() {
 
   return (
     <>
-    {/* <Menu/> */}
-    {/* <HeroOne/> */}
+      {/* <Menu/> */}
+      {/* <HeroOne/> */}
       {/* <HeroPage/> */}
-      <Feature7/>
+      {/* <Feature7/> */}
       {/* <TestPage/> */}
+      <Feature6/>
+      {/* <Home/> */}
+      {/* <Feature1/> */}
+      {/* <FeatureFour/> */}
+      {/* <Feature5/> */}
     </>
   );
 }

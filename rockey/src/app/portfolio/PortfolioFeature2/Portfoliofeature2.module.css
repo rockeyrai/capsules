@@ -6,7 +6,9 @@
   --fg-200: #a1a1a1;
 }
 
-section {
+.section1,
+.section2,
+.section3 {
   position: relative;
   width: 100%;
   height: 100svh;
@@ -15,15 +17,14 @@ section {
   overflow: hidden;
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: 500;
-  line-height: 1.1;
+.col-title {
+  font-size: 2rem;
+  letter-spacing: 0rem;
+  word-spacing: 0.1rem;
 }
 
-p {
+.col-text {
   font-size: 1rem;
-  font-weight: 500;
 }
 
 .intro,
@@ -58,7 +59,7 @@ p {
 
 .col h1 {
   color: var(--fg-200);
-  width: 60%;
+  width: 80%;
 }
 
 .col p {
@@ -100,10 +101,9 @@ p {
 .col-img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* ✅ contain inside wrapper */
+  object-fit: cover;
   display: block;
 }
-
 
 .col-content-wrapper {
   padding: 2.5rem;
@@ -151,14 +151,6 @@ p {
 }
 
 @media (max-width: 700px) {
-  h1 {
-    font-size: 1.25rem;
-  }
-
-  p {
-    font-size: 0.85rem;
-  }
-
   .col h1,
   .col p {
     width: 100%;

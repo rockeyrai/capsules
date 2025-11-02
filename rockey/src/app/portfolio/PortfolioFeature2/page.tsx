@@ -5,9 +5,9 @@ import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
-import styles from "./feature6Module.module.css";
+import styles from "./Portfoliofeature2.module.css";
 
-const Feature6: React.FC = () => {
+const PortfolioFeature2: React.FC = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -171,22 +171,24 @@ const Feature6: React.FC = () => {
 
   return (
     <>
-      <section id={styles.setction1} className={styles.intro}>
-        <h1 className={styles["col-title"]}>We create modern interiors that feel effortlessly personal</h1>
+      <section className={`${styles.intro} ${styles.section1}`}>
+        <h1 className={styles["col-title"]}>
+          Take control of your investments with Portfolio Nepal
+        </h1>
       </section>
 
-      <section id={styles.setction2} className={styles["sticky-cols"]}>
+      <section className={`${styles["sticky-cols"]} ${styles.section2}`}>
         <div className={styles["sticky-cols-wrapper"]}>
           {/* Col-1 */}
           <div className={`${styles.col} ${styles["col-1"]}`}>
             <div className={styles["col-content"]}>
               <div className={styles["col-content-wrapper"]}>
                 <h1 className={styles["col-title"]}>
-                  We design spaces where comfort meets quiet sophistication.
+                  Automatic Sync with Meroshare
                 </h1>
                 <p className={styles["col-text"]}>
-                  Layered textures, rich tones, and thoughtful details come
-                  together to create interiors that feel lived-in yet elevated.
+                  Keep your portfolio up-to-date automatically by syncing with
+                  your Meroshare account, so you never miss a market move.
                 </p>
               </div>
             </div>
@@ -209,20 +211,19 @@ const Feature6: React.FC = () => {
           {/* Col-3 */}
           <div className={`${styles.col} ${styles["col-3"]}`}>
             <div className={styles["col-content-wrapper"]}>
-              <h1 className={styles["col-title"]}>Our interiors are crafted to feel as calm as they look</h1>
+              <h1 className={styles["col-title"]}>Portfolio Rebalance </h1>
               <p className={styles["col-text"]}>
-                Each space is designed with intentional balance between warmth
-                and modernity.
+                Keep your investments aligned with your strategy by
+                automatically rebalancing your portfolio.
               </p>
             </div>
             <div className={styles["col-content-wrapper-2"]}>
               <h1 className={styles["col-title"]}>
-                Every detail is chosen to bring ease and elegance into your
-                space.
+                Weighted Screener Powered by PortAI
               </h1>
               <p className={styles["col-text"]}>
-                From custom furnishings to ambient lighting, we shape
-                environments that reflect your lifestyle.
+                Identify high-potential stocks quickly with our AI-powered
+                weighted screener.
               </p>
             </div>
           </div>
@@ -236,13 +237,18 @@ const Feature6: React.FC = () => {
             </div>
           </div>
         </div>
+
       </section>
 
-      <section id={styles.setction3} className={styles.outro}>
+      <section className={`${styles.outro} ${styles.section3}`}>
         <h1>Timeless design begins with a conversation</h1>
       </section>
     </>
   );
 };
 
-export default Feature6;
+// <h1>Travel Back in Time & Copilot Assistance</h1>
+// <p className={styles["col-text"]}>
+//   Explore past portfolio performance and let Copilot guide your next investment decisions with intelligent insights.
+// </p>
+export default PortfolioFeature2;
