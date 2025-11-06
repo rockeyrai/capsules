@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import styles from "./PortfolioFeature1.module.css";
@@ -16,26 +15,31 @@ const PortfolioFeature1: React.FC = () => {
 
     const canvas = canvasRef.current;
 
-    // ✅ Renderer setup
+    //  Renderer setup
     const renderer = new THREE.WebGLRenderer({
       canvas,
       antialias: true,
       precision: "highp",
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const container = canvas.parentElement;
+    if (!container) return;
+
+    const { width, height } = container.getBoundingClientRect();
+    renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // ✅ Scene & camera
+    //  Scene & camera
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-    // ✅ Mouse & movement states
+    //  Mouse & movement states
     const mouse = new THREE.Vector2(0.5, 0.5);
     const prevMouse = new THREE.Vector2(0.5, 0.5);
     let isMoving = false;
     let lastMoveTime = 0;
 
-    // ✅ Ping-pong targets for fluid trails
+    //  Ping-pong targets for fluid trails
     const size = 500;
     const pingPongTargets = [
       new THREE.WebGLRenderTarget(size, size, {
@@ -53,14 +57,14 @@ const PortfolioFeature1: React.FC = () => {
     ];
     let currentTarget = 0;
 
-    // ✅ Placeholder textures
+    //  Placeholder textures
     const topTexture = createPlaceholderTexture("#0000ff");
     const bottomTexture = createPlaceholderTexture("#ff0000");
 
     const topTextureSize = new THREE.Vector2(1, 1);
     const bottomTextureSize = new THREE.Vector2(1, 1);
 
-    // ✅ Fluid simulation shader material
+    //  Fluid simulation shader material
     const trailsMaterial = new THREE.ShaderMaterial({
       uniforms: {
         uPrevTrails: { value: null },
@@ -73,13 +77,15 @@ const PortfolioFeature1: React.FC = () => {
       fragmentShader: fluidFragmentShader,
     });
 
-    // ✅ Display shader material
+    //  Display shader material
     const displayMaterial = new THREE.ShaderMaterial({
       uniforms: {
         uFluid: { value: null },
         uTopTexture: { value: topTexture },
         uBottomTexture: { value: bottomTexture },
-        uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+        uResolution: {
+          value: new THREE.Vector2(window.innerWidth, window.innerHeight),
+        },
         uDpr: { value: window.devicePixelRatio },
         uTopTextureSize: { value: topTextureSize },
         uBottomTextureSize: { value: bottomTextureSize },
@@ -88,11 +94,11 @@ const PortfolioFeature1: React.FC = () => {
       fragmentShader: displayFragmentShader,
     });
 
-    // ✅ Load actual images if needed
+    //  Load actual images if needed
     loadImage("/hero/image1.jpg", topTexture, topTextureSize, true);
     loadImage("/hero/image2.jpg", bottomTexture, bottomTextureSize, false);
 
-    // ✅ Plane geometry & meshes
+    //  Plane geometry & meshes
     const planeGeometry = new THREE.PlaneGeometry(2, 2);
     const displayMesh = new THREE.Mesh(planeGeometry, displayMaterial);
     scene.add(displayMesh);
@@ -101,14 +107,14 @@ const PortfolioFeature1: React.FC = () => {
     const simScene = new THREE.Scene();
     simScene.add(simMesh);
 
-    // ✅ Clear render targets initially
+    //  Clear render targets initially
     pingPongTargets.forEach((target) => {
       renderer.setRenderTarget(target);
       renderer.clear();
     });
     renderer.setRenderTarget(null);
 
-    // ✅ Mouse handling
+    //  Mouse handling
     const onMouseMove = (event: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
 
@@ -130,15 +136,19 @@ const PortfolioFeature1: React.FC = () => {
     };
 
     const onWindowResize = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      displayMaterial.uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
+      const container = canvas.parentElement;
+      if (!container) return;
+
+      const { width, height } = container.getBoundingClientRect();
+      renderer.setSize(width, height);
+      displayMaterial.uniforms.uResolution.value.set(width, height);
       displayMaterial.uniforms.uDpr.value = window.devicePixelRatio;
     };
 
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("resize", onWindowResize);
 
-    // ✅ Animation loop
+    //  Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
 
@@ -166,7 +176,7 @@ const PortfolioFeature1: React.FC = () => {
 
     animate();
 
-    // ✅ Cleanup
+    //  Cleanup
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("resize", onWindowResize);
@@ -241,8 +251,10 @@ const PortfolioFeature1: React.FC = () => {
   }, []);
 
   return (
-    <section className={styles.hero}>
-      <canvas ref={canvasRef} className={styles.canvas}></canvas>
+    <section className={styles.container}>
+      <div className={styles["canvas-container"]}>
+        <canvas ref={canvasRef} className={styles.canvas}></canvas>
+      </div>
     </section>
   );
 };

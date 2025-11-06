@@ -1,0 +1,166 @@
+:root {
+    --light: #edf1e8;
+    --dark: #101010;
+}
+
+.hero h1{
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: -0.7rem;
+    line-height: 1.125;
+}
+
+.col h3 {
+    font-size: 2.25rem;
+    font-weight: 500;
+    letter-spacing: -0.025rem;
+    line-height: 1.125;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light);
+    will-change: background-color;
+}
+
+.hero ,
+.outro {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    padding: 2rem;
+    align-content: center;
+    text-align: center;
+}
+
+.hero h1,
+.outro h1 {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.outro{
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+
+.marquee {
+    position: relative;
+    width: 100%;
+    height: 50svh;
+    overflow: hidden;
+}
+
+.marquee-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-5deg);
+    width: 150%;
+    height: 100%;
+}
+
+.marquee-images {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75%,-50%);
+    width: 200%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    will-change: transform;
+}
+
+.marquee-img {
+    flex: 1;
+    width: 100%;
+    aspect-ratio: 5/3;
+}
+
+.horizontal-scroll {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    overflow: hidden;
+}
+
+.horizontal-scroll-wrapper {
+    position: relative;
+    width: 300%;
+    height: 100svh;
+    display: flex;
+    will-change: transform;
+}
+
+.horizontal-slide{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    padding: 2rem;
+}
+
+
+.horizontal-slide:not(.horizontal-spacer){
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.horizontal-slide .col:nth-child(1){
+    flex: 3;
+}
+
+.horizontal-slide .col:nth-child(2){
+    flex: 2;
+}
+
+.horizontal-scroll .col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontal-slide .col h3,
+.horizontal-slide .col img {
+    width: 75%;
+}
+
+.horizontal-slide .col img {
+    height: 75%;
+}
+
+
+@media (max-width:1000px){
+
+    .hero h1, .outro h1 {
+        width: 100%;
+    }
+
+    .marquee-wrapper {
+        width: 300%;
+    }
+
+    .horizontal-slide {
+        padding: 4rem;
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .horizontal-slide .col:nth-child(1){
+        align-items: flex-start;
+    }
+
+    .horizontal-slide .col h3{
+        width: 100%;
+    }
+
+    .horizontal-slide .col img {
+        width: 100%;
+        height: 100%;
+    }
+}

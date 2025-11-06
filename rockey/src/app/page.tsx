@@ -12,6 +12,7 @@ import Home from "../section/feature/page";
 import Feature1 from "../section/feature1/page";
 import FeatureFour from "../section/feature4/page";
 import Feature5 from "../section/feature5/page";
+import Feature8 from "../section/feature8";
 
 const routes = [
   { path: "/", name: "Home" },
@@ -36,11 +37,12 @@ export default function Navbar() {
       {/* <HeroPage/> */}
       {/* <Feature7/> */}
       {/* <TestPage/> */}
-      <Feature6/>
+      {/* <Feature6/> */}
       {/* <Home/> */}
       {/* <Feature1/> */}
       {/* <FeatureFour/> */}
       {/* <Feature5/> */}
+      <Feature8/>
     </>
   );
 }
