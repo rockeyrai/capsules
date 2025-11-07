@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -48,7 +48,7 @@ section {
   position: absolute;
   top: 50%;
   width: 100%;
-  transform: translateY(-50%); /* true centering */
+  transform: translateY(-50%); 
   display: flex;
   gap: 0.5rem;
 }
@@ -195,4 +195,4 @@ section {
   .spotlight-header {
     display: none;
   }
-}
+} */

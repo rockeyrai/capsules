@@ -1,3 +1,4 @@
+
 :root {
     --light: #edf1e8;
     --dark: #101010;
@@ -17,7 +18,7 @@
     line-height: 1.125;
 }
 
-.container {
+.containers {
     position: relative;
     width: 100%;
     height: 100%;
@@ -50,15 +51,16 @@
 .marquee {
     position: relative;
     width: 100%;
-    height: 50svh;
+    height: 100svh;
     overflow: hidden;
+    /* background-color: aqua; */
 }
 
 .marquee-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotate(-5deg);
+    transform: translate(-50%,-50%) rotate(-10deg);
     width: 150%;
     height: 100%;
 }
@@ -68,7 +70,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-75%,-50%);
-    width: 200%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -80,7 +82,7 @@
 .marquee-img {
     flex: 1;
     width: 100%;
-    aspect-ratio: 5/3;
+    aspect-ratio: 5/2;
 }
 
 .horizontal-scroll {

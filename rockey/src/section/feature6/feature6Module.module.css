@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --bg: #141414;
   --bg-200: #282828;
   --fg: #fff;
@@ -26,16 +26,7 @@
 .col-text{
   font-size: 1rem;
 }
-/* h1 {
-  font-size: 2.5rem;
-  font-weight: 500;
-  line-height: 1.1;
-}
 
-p {
-  font-size: 1rem;
-  font-weight: 500;
-} */
 
 .intro,
 .outro {
@@ -162,13 +153,6 @@ p {
 }
 
 @media (max-width: 700px) {
-  /* h1 {
-    font-size: 1.25rem;
-  }
-
-  p {
-    font-size: 0.85rem;
-  } */
 
   .col h1,
   .col p {
@@ -179,4 +163,4 @@ p {
   .col-content-wrapper-2 {
     padding: 2rem;
   }
-}
+} */
