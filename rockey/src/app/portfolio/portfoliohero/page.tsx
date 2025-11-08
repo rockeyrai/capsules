@@ -223,7 +223,7 @@ const PortfolioHeroOne: React.FC = () => {
 
   return (
     <>
-      {/* <div className={styles.hero1PreloaderProgress}>
+      <div className={styles.hero1PreloaderProgress}>
         <div className={styles.hero1PreloaderProgressBar}></div>
         <div className={styles.hero1PreloaderLogo}>
           <h1>PORTFOLIO NEPAL</h1>
@@ -237,7 +237,7 @@ const PortfolioHeroOne: React.FC = () => {
             through insight and precision.
           </p>
         </div>
-      </div> */}
+      </div>
       <div className={styles.heroContainers}>
         <section className={styles.hero1}>
           <div className={styles.hero1Inner}>
