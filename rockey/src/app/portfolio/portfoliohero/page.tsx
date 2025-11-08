@@ -7,6 +7,7 @@ import styles from "./PortfolioHero1.module.css";
 import PortfolioFeature1 from "../Portfoliofeature1";
 import { ArrowRightCircle } from "lucide-react";
 import PortfolioFeature2 from "../PortfolioFeature2/page";
+import Feature9 from "@/src/section/feature9";
 
 const PortfolioHeroOne: React.FC = () => {
   useEffect(() => {
@@ -263,6 +264,7 @@ const PortfolioHeroOne: React.FC = () => {
                   investment decisions — all in one place.
                 </p>
               </div>
+
               <div className={styles.hero1MenuHeroBtn}>
                 <div className={styles.hero1Btn}>
                   <div className={styles.hero1BtnLabel}>

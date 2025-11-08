@@ -26,7 +26,9 @@ void main() {
     vec2 mousePos = uMouse;
 
     // distance from the mouse center
-    float dist = length(vUv - mousePos);
+vec2 aspect = vec2(uResolution.x / uResolution.y, 1.0);
+float dist = length((vUv - mousePos) * aspect / max(aspect.x, aspect.y));
+
 
     // control how wide the circle appears
     float radius = 0.08;       // 🔧 circle size

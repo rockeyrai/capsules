@@ -40,7 +40,8 @@ const PortfolioFeature1: React.FC = () => {
     let lastMoveTime = 0;
 
     //  Ping-pong targets for fluid trails
-    const size = 500;
+    const size = 500; //The shader updates a 100×100 grid of pixels each frame. That’s only 10,000 fragment operations per pass. The result looks smooth and slightly “diffuse,” perfect for fluid or glow-like motion.  now updating 250,000 pixels per frame (25× more work).
+    
     const pingPongTargets = [
       new THREE.WebGLRenderTarget(size, size, {
         minFilter: THREE.LinearFilter,
@@ -72,6 +73,7 @@ const PortfolioFeature1: React.FC = () => {
         uPrevMouse: { value: prevMouse },
         uDecay: { value: 0.97 },
         uIsMoving: { value: false },
+        uResolution: { value: new THREE.Vector2(width, height) }, // 👈 ADD THIS
       },
       vertexShader,
       fragmentShader: fluidFragmentShader,

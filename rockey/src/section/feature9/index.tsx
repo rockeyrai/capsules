@@ -3,7 +3,7 @@ import gsap from "gsap";
 import SVGComponent from "./perdotsvg";
 import styles from "./AnimatedSVG.module.css";
 
-const AnimatedSVG: React.FC = () => {
+const Feature9: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -159,4 +159,4 @@ const AnimatedSVG: React.FC = () => {
   );
 };
 
-export default AnimatedSVG;
+export default Feature9;
