@@ -2,15 +2,15 @@ import * as React from "react";
 const SVGComponent = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={250}
-    height={250}
+    width={300}
+    height={300}
     fill="none"
-    viewBox="0 0 900 900"
+    viewBox="0 0 1000 1000"
     {...props}
   >
     <defs>
       <clipPath id="circleMask">
-        <circle cx="450" cy="450" r="450" />
+        <circle cx="450" cy="450" r="600" />
       </clipPath>
     </defs>
     <g clipPath="url(#circleMask)">
