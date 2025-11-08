@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import SVGComponent from "./perdotsvg";
+import styles from "./AnimatedSVG.module.css";
 
 const AnimatedSVG: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -10,11 +11,12 @@ const AnimatedSVG: React.FC = () => {
 
     const ctx = gsap.context(() => {
       const allPaths = gsap.utils.toArray<SVGElement>("#animatedLogo path");
-      const boxes = gsap.utils.toArray<HTMLElement>(".info-box");
-
+      const boxes = gsap.utils.toArray<HTMLElement>(
+        containerRef.current?.getElementsByClassName(styles["info-box"]) || []
+      );
 
       // GPU optimization
-      gsap.set(["#animatedLogo", ".info-box"], {
+      gsap.set(["#animatedLogo", ...boxes], {
         willChange: "transform, opacity",
       });
 
@@ -64,17 +66,17 @@ const AnimatedSVG: React.FC = () => {
           "-=1"
         )
         // Floating effect
-        .to(
-          "#animatedLogo",
-          {
-            y: "+=20",
-            repeat: -1,
-            yoyo: true,
-            duration: 2,
-            ease: "sine.inOut",
-          },
-          ">-0.2"
-        )
+        // .to(
+        //   "#animatedLogo",
+        //   {
+        //     y: "+=20",
+        //     repeat: -1,
+        //     yoyo: true,
+        //     duration: 2,
+        //     ease: "sine.inOut",
+        //   },
+        //   ">-0.2"
+        // )
         // Reveal boxes
         .to(
           boxes,
@@ -90,8 +92,6 @@ const AnimatedSVG: React.FC = () => {
         )
         // Floating motion for boxes
         .add(() => {
-          console.log("Boxes visible - starting random float motion");
-
           boxes.forEach((box) => {
             const distance = gsap.utils.random(5, 15); // random float distance
             const duration = gsap.utils.random(1.8, 3.2); // random speed
@@ -127,123 +127,28 @@ const AnimatedSVG: React.FC = () => {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        position: "relative",
-        minHeight: "100vh",
-        background: "#000",
-        color: "#fff",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        overflow: "hidden",
-      }}
-    >
+    <div ref={containerRef} className={styles.container}>
       {/* Boxes */}
-      <div
-        className="info-box box-1"
-        style={{
-          position: "absolute",
-          display: "none",
-          background: "rgba(15, 15, 15, 0.85)",
-          padding: "16px 20px",
-          borderRadius: "12px",
-          border: "1px rgba(0, 255, 102, 0.2) solid",
-          //   boxShadow: "0 0 20px rgba(0, 255, 102, 0.2)",
-          width: "220px",
-          textAlign: "center",
-          backdropFilter: "blur(6px)",
-          top: "30%",
-          left: "13%",
-        }}
-      >
-        <h1
-          style={{ fontSize: "1.1rem", color: "#00ff88", marginBottom: "8px" }}
-        >
-          Stock Analytical Tool
-        </h1>
-        <p style={{ fontSize: "0.9rem", color: "#ccc", lineHeight: "1.3" }}>
-          Saral Lagani, a powerful tool to analyze stocks from NEPSE.
-        </p>
+      <div className={`${styles["info-box"]} ${styles["box-1"]}`}>
+        <h1>Stock Analytical Tool</h1>
+        <p>Saral Lagani, a powerful tool to analyze stocks from NEPSE.</p>
       </div>
 
-      <div
-        className="info-box box-2"
-        style={{
-          position: "absolute",
-          display: "none",
-          background: "rgba(15, 15, 15, 0.85)",
-          padding: "16px 20px",
-          borderRadius: "12px",
-          //   boxShadow: "0 0 20px rgba(0, 255, 102, 0.2)",
-          width: "220px",
-          textAlign: "center",
-          backdropFilter: "blur(6px)",
-          bottom: "20%",
-          left: "20%",
-        }}
-      >
-        <h1
-          style={{ fontSize: "1.1rem", color: "#00ff88", marginBottom: "8px" }}
-        >
-          API Service
-        </h1>
+      <div className={`${styles["info-box"]} ${styles["box-2"]}`}>
+        <h1>API Service</h1>
         <p style={{ fontSize: "0.9rem", color: "#ccc", lineHeight: "1.3" }}>
           API to get data of all the companies in the stock market.
         </p>
       </div>
 
-      <div
-        className="info-box box-3"
-        style={{
-          position: "absolute",
-          display: "none",
-          background: "rgba(15, 15, 15, 0.85)",
-          padding: "16px 20px",
-          borderRadius: "12px",
-          //   boxShadow: "0 0 20px rgba(0, 255, 102, 0.2)",
-          width: "220px",
-          textAlign: "center",
-          backdropFilter: "blur(6px)",
-          top: "20%",
-          right: "18%",
-        }}
-      >
-        <h1
-          style={{ fontSize: "1.1rem", color: "#00ff88", marginBottom: "8px" }}
-        >
-          Broker Analytica
-        </h1>
-        <p style={{ fontSize: "0.9rem", color: "#ccc", lineHeight: "1.3" }}>
-          An analytical tool for clients based on their needs.
-        </p>
+      <div className={`${styles["info-box"]} ${styles["box-3"]}`}>
+        <h1>Broker Analytica</h1>
+        <p>An analytical tool for clients based on their needs.</p>
       </div>
 
-      <div
-        className="info-box box-4"
-        style={{
-          position: "absolute",
-          display: "none",
-          background: "rgba(15, 15, 15, 0.85)",
-          padding: "16px 20px",
-          borderRadius: "12px",
-          //   boxShadow: "0 0 20px rgba(0, 255, 102, 0.2)",
-          width: "220px",
-          textAlign: "center",
-          backdropFilter: "blur(6px)",
-          bottom: "20%",
-          right: "22%",
-        }}
-      >
-        <h1
-          style={{ fontSize: "1.1rem", color: "#00ff88", marginBottom: "8px" }}
-        >
-          Capital Analytica
-        </h1>
-        <p style={{ fontSize: "0.9rem", color: "#ccc", lineHeight: "1.3" }}>
-          A tool designed for capital and investment analysis.
-        </p>
+      <div className={`${styles["info-box"]} ${styles["box-4"]}`}>
+        <h1>Capital Analytica</h1>
+        <p>A tool designed for capital and investment analysis.</p>
       </div>
 
       {/* SVG */}
