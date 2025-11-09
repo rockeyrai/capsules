@@ -13,7 +13,8 @@ import Feature1 from "../section/feature1/page";
 import FeatureFour from "../section/feature4/page";
 import Feature5 from "../section/feature5/page";
 import Feature8 from "../section/feature8";
-import AnimatedLogo from "../section/feature9";
+import Feature9 from "../section/feature9";
+import Feature10 from "../section/feature10";
 
 const routes = [
   { path: "/", name: "Home" },
@@ -44,7 +45,8 @@ export default function Navbar() {
       {/* <FeatureFour/> */}
       {/* <Feature5/> */}
       {/* <Feature8/> */}
-      <AnimatedLogo/>
+      {/* <Feature9/> */}
+      <Feature10/>
     </>
   );
 }
