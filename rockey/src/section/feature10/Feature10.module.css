@@ -67,8 +67,26 @@
 }
 
 .service {
-  width: max-content;
-  height: 38px;
+  height: 38px; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  padding-top: 5px; 
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.service span {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+.service.active span {
+  opacity: 1;
+  height: auto; /* allow full height */
+  margin-top: 5px; /* optional spacing */
 }
 
 .service p {
@@ -138,6 +156,12 @@
   transform: scaleY(0);
   transition: transform 0.3s linear;
 }
+
+.service.active {
+  background-color: #ffcc00; /* highlight color */
+  transition: background-color 0.3s ease;
+}
+
 
 .index {
   position: absolute;
