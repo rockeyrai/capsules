@@ -124,11 +124,17 @@ const Feature10: React.FC = () => {
         const scrollProgress = self.progress;
 
         // Animate the progress bar
-        gsap.to(progress, {
-          scaleY: scrollProgress,
-          duration: 0.1,
-          ease: "none",
-        });
+        if (window.innerWidth > 700) {
+          gsap.set(progress, {
+            scaleY: self.progress,
+            transformOrigin: "top",
+          });
+        } else {
+          gsap.set(progress, {
+            scaleX: self.progress,
+            transformOrigin: "left",
+          });
+        }
 
         if (
           activeIndex >= 0 &&
@@ -176,7 +182,7 @@ const Feature10: React.FC = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="containers">
       <section className="hero">
         <p>Scroll down</p>
       </section>
