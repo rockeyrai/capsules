@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
 import { SimpleSplit } from "@/utils/splitText";
+import styles from "./Feature10.module.css";
 
 const serviceTexts = [
   ["We transform your ideas into creative solutions."],
@@ -14,42 +15,31 @@ const serviceTexts = [
 
 const Feature10: React.FC = () => {
   useEffect(() => {
-    // ✅ Register plugin
     gsap.registerPlugin(ScrollTrigger);
 
-    // ✅ Setup smooth scrolling
     const lenis = new Lenis();
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
 
-    // ✅ Element references
-    const stickySection = document.querySelector(".sticky") as HTMLElement;
-    const services = document.querySelectorAll(".service");
-    const indicator = document.querySelector(".indicator") as HTMLElement;
-    const currentCount = document.querySelector(
-      "#current-count"
-    ) as HTMLElement;
-    const serviceImg = document.querySelector(".service-img") as HTMLElement;
-    const serviceCopyEl = document.querySelector(
-      ".service-copy p"
-    ) as HTMLElement;
-    const separator = document.querySelector(".separator") as HTMLElement;
-    const progress = document.querySelector(".progress") as HTMLElement;
+    const stickySection = document.querySelector(`.${styles.sticky}`) as HTMLElement;
+    const services = document.querySelectorAll(`.${styles.service}`);
+    const indicator = document.querySelector(`.${styles.indicator}`) as HTMLElement;
+    const currentCount = document.querySelector(`#current-count`) as HTMLElement;
+    const serviceImg = document.querySelector(`.${styles["service-img"]}`) as HTMLElement;
+    const serviceCopyEl = document.querySelector(`.${styles["service-copy"]} p`) as HTMLElement;
+    const separator = document.querySelector(`.${styles.separator}`) as HTMLElement;
+    const progress = document.querySelector(`.${styles.progress}`) as HTMLElement;
 
     if (!stickySection || !indicator || !serviceImg || !serviceCopyEl) return;
 
     const serviceHeight = 38;
     const imgHeight = 250;
 
-    // ✅ Initial text setup
     serviceCopyEl.textContent = serviceTexts[0][0];
     let currentSplitText = new SimpleSplit(serviceCopyEl);
 
-    // ✅ Measure text widths
     const measureContainer = document.createElement("div");
     measureContainer.style.cssText = `
       position: absolute;
@@ -80,7 +70,6 @@ const Feature10: React.FC = () => {
     const scrollPerService = window.innerHeight;
     let currentIndex = 0;
 
-    // ✅ Animate text change
     const animateTextChange = async (index: number) => {
       return new Promise<void>((resolve) => {
         gsap.to(currentSplitText.lines, {
@@ -93,7 +82,6 @@ const Feature10: React.FC = () => {
             currentSplitText.revert();
             const newText = serviceTexts[index][0];
             serviceCopyEl.textContent = newText;
-
             currentSplitText = new SimpleSplit(serviceCopyEl);
 
             gsap.set(currentSplitText.lines, { opacity: 0, y: 20 });
@@ -111,7 +99,6 @@ const Feature10: React.FC = () => {
       });
     };
 
-    // ✅ ScrollTrigger logic
     ScrollTrigger.create({
       trigger: stickySection,
       start: "top top",
@@ -121,19 +108,11 @@ const Feature10: React.FC = () => {
       onUpdate: async (self) => {
         const scrollPos = Math.max(0, self.scroll() - window.innerHeight);
         const activeIndex = Math.floor(scrollPos / scrollPerService);
-        const scrollProgress = self.progress;
 
-        // Animate the progress bar
         if (window.innerWidth > 700) {
-          gsap.set(progress, {
-            scaleY: self.progress,
-            transformOrigin: "top",
-          });
+          gsap.set(progress, { scaleY: self.progress, transformOrigin: "top" });
         } else {
-          gsap.set(progress, {
-            scaleX: self.progress,
-            transformOrigin: "left",
-          });
+          gsap.set(progress, { scaleX: self.progress, transformOrigin: "left" });
         }
 
         if (
@@ -144,8 +123,8 @@ const Feature10: React.FC = () => {
           currentIndex = activeIndex;
           currentCount.textContent = String(activeIndex + 1);
 
-          services.forEach((s) => s.classList.remove("active"));
-          services[activeIndex].classList.add("active");
+          services.forEach((s) => s.classList.remove(styles.active));
+          services[activeIndex].classList.add(styles.active);
 
           await Promise.all([
             gsap.to(indicator, {
@@ -162,7 +141,6 @@ const Feature10: React.FC = () => {
               overwrite: true,
             }),
             animateTextChange(activeIndex),
-            // 💫 Separator animation
             gsap.fromTo(
               separator,
               { scaleX: 0 },
@@ -182,70 +160,70 @@ const Feature10: React.FC = () => {
   }, []);
 
   return (
-    <div className="containers">
-      <section className="hero">
+    <div className={styles.containers}>
+      <section className={`${styles.hero} ${styles.section}`}>
         <p>Scroll down</p>
       </section>
 
-      <section className="sticky">
-        <div className="col">
-          <div className="services">
-            <div className="indicator"></div>
-            <div className="service">
+      <section className={`${styles.sticky} ${styles.section}`}>
+        <div className={styles.col}>
+          <div className={styles.services}>
+            <div className={styles.indicator}></div>
+            <div className={styles.service}>
               <p>Developer</p>
             </div>
-            <div className="service">
+            <div className={styles.service}>
               <p>API Service</p>
             </div>
-            <div className="service">
+            <div className={styles.service}>
               <p>Capital Stock</p>
             </div>
-            <div className="service">
+            <div className={styles.service}>
               <p>Stock Analysis</p>
             </div>
-            <div className="service">
+            <div className={styles.service}>
               <p>Broker</p>
             </div>
           </div>
         </div>
 
-        <div className="col">
-          <div className="service-img-wrapper">
-            <div className="service-img">
-              <div className="img">
+        <div className={styles.col}>
+          <div className={styles["service-img-wrapper"]}>
+            <div className={styles["service-img"]}>
+              <div className={styles.img}>
                 <img src="hero/image1.jpg" alt="" />
               </div>
-              <div className="img">
+              <div className={styles.img}>
                 <img src="hero/image2.jpg" alt="" />
               </div>
-              <div className="img">
+              <div className={styles.img}>
                 <img src="hero/image3.jpg" alt="" />
               </div>
-              <div className="img">
+              <div className={styles.img}>
                 <img src="hero/image4.webp" alt="" />
               </div>
-              <div className="img">
+              <div className={styles.img}>
                 <img src="hero/image5.jpg" alt="" />
               </div>
             </div>
           </div>
-          <div className="service-copy">
+          <div className={styles["service-copy"]}>
             <p>Some random text</p>
           </div>
         </div>
 
-        <div className="progress-bar">
-          <div className="progress"></div>
+        <div className={styles["progress-bar"]}>
+          <div className={styles.progress}></div>
         </div>
 
-        <div className="index">
+        <div className={styles.index}>
           <span id="current-count">1</span>
-          <span className="separator"></span>
+          <span className={styles.separator}></span>
           <span id="total-count">5</span>
         </div>
       </section>
 
-      <section className="outro">
+      <section className={`${styles.outro} ${styles.section}`}>
         <p>Text section goes here</p>
       </section>
     </div>
