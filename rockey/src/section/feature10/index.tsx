@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
-import { SimpleSplit } from "@/utils/splitText";
 import styles from "./Feature10.module.css";
+import SplitType from "split-type";
 
 const serviceTexts = [
   ["We transform your ideas into creative solutions."],
@@ -69,7 +69,7 @@ const Feature10: React.FC = () => {
 
     // Set initial service copy
     serviceCopyEl.textContent = serviceTexts[0][0];
-    let currentSplitText = new SimpleSplit(serviceCopyEl);
+    let currentSplitText = new SplitType(serviceCopyEl);
 
     // Activate first service on load
     services.forEach((s, idx) => {
@@ -96,7 +96,7 @@ const Feature10: React.FC = () => {
           onComplete: () => {
             currentSplitText.revert();
             serviceCopyEl.textContent = serviceTexts[index][0];
-            currentSplitText = new SimpleSplit(serviceCopyEl);
+            currentSplitText = new SplitType(serviceCopyEl);
 
             gsap.set(currentSplitText.lines, { opacity: 0, y: 20 });
 

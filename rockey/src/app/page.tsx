@@ -15,6 +15,7 @@ import Feature5 from "../section/feature5/page";
 import Feature8 from "../section/feature8";
 import Feature9 from "../section/feature9";
 import Feature10 from "../section/feature10";
+import Feature11 from "../section/feature11";
 
 const routes = [
   { path: "/", name: "Home" },
@@ -46,7 +47,8 @@ export default function Navbar() {
       {/* <Feature5/> */}
       {/* <Feature8/> */}
       {/* <Feature9/> */}
-      <Feature10/>
+      {/* <Feature10/> */}
+      <Feature11/>
     </>
   );
 }
