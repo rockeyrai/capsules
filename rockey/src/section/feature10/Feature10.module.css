@@ -244,7 +244,7 @@
     bottom: unset;
   }
 }
-
+/* 
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
@@ -259,4 +259,4 @@
 
 .lenis.lenis-smooth iframe {
   pointer-events: none;
-}
+} */

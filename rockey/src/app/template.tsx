@@ -13,7 +13,7 @@ const Page_template = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div>
-      <div
+      {/* <div
         id="banner-1"
         className="min-h-screen z-[999] bg-neutral-950 fixed top-0 left-0 w-1/5"
       />
@@ -32,7 +32,7 @@ const Page_template = ({ children }: { children: React.ReactNode }) => {
       <div
         id="banner-5"
         className="min-h-screen z-[999] bg-neutral-950 fixed top-0 left-4/5 w-1/5"
-      />
+      /> */}
       {children}
     </div>
   );
