@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import SVGComponent from "./perdotsvg";
+import SVGComponent from "./peri";
 import styles from "./AnimatedSVG.module.css";
 
 const Feature9: React.FC = () => {

@@ -16,6 +16,9 @@ import Feature8 from "../section/feature8";
 import Feature9 from "../section/feature9";
 import Feature10 from "../section/feature10";
 import Feature11 from "../section/feature11";
+import Feature2 from "../section/feature2/page";
+import CandlestickGame from "../section/stockgame";
+import GameComponent from "../section/stockgame";
 
 const routes = [
   { path: "/", name: "Home" },
@@ -36,19 +39,21 @@ export default function Navbar() {
   return (
     <>
       {/* <Menu/> */}
-      {/* <HeroOne/> */}
-      {/* <HeroPage/> */}
-      {/* <Feature7/> */}
+      {/* <HeroOne/>  capsule hero loading hero  */}
+      {/* <HeroPage/> counting number and image reviel */}
+      {/* <Feature7/> scrach to review */}
       {/* <TestPage/> */}
-      {/* <Feature6/> */}
+      {/* <Feature6/> bug  */}
       {/* <Home/> */}
-      {/* <Feature1/> */}
-      {/* <FeatureFour/> */}
-      {/* <Feature5/> */}
-      {/* <Feature8/> */}
-      {/* <Feature9/> */}
-      {/* <Feature10/> */}
-      <Feature11/>
+      {/* <Feature1/> bug needd to be fix  */}
+      {/* <FeatureFour/> bug need fix  */}
+      {/* <Feature5/>   bug neede fix  */}
+      {/* <Feature8/>  horizontal scroll and change to vertical  */}
+      {/* <Feature9/>  revil animation hero or feature  */}
+      {/* <Feature10/>    right side image and left side title and descp when scoll it change  */}
+      {/* <Feature11/>  3 horizontal row with image and text  move  when scroll  */}
+      {/* <Feature2/>  instagra story slide  */}
+      {/* <GameComponent/>  test game with bug  */}
     </>
   );
 }
