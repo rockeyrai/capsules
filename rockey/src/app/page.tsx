@@ -51,8 +51,8 @@ export default function Navbar() {
       {/* <Feature8/>  horizontal scroll and change to vertical  */}
       {/* <Feature9/>  revil animation hero or feature  */}
       {/* <Feature10/>    right side image and left side title and descp when scoll it change  */}
-      {/* <Feature11/>  3 horizontal row with image and text  move  when scroll  */}
-      {/* <Feature2/>  instagra story slide  */}
+      {/* <Feature11/>  3 horizontal row with image and text  move  when scroll  */}  for teach-stack useed
+      {/* <Feature2/>  instagra story slide  */}  use for hobby page hero
       {/* <GameComponent/>  test game with bug  */}
     </>
   );

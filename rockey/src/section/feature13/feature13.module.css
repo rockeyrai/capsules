@@ -1,0 +1,199 @@
+h1 {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+a,
+p {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.containers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.blurry-prev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(80px);
+}
+
+.col {
+  position: relative;
+  padding: 1em;
+}
+
+.site-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgb(255, 255, 255, 0.1);
+}
+
+nav {
+  display: flex;
+  grid-area: 1em;
+}
+
+.header {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.project-preview {
+  flex: 2;
+}
+
+.project-details {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 50%;
+}
+
+.title {
+  margin-bottom: 0.5em;
+}
+
+.info {
+  margin-bottom: 1em;
+}
+
+.title,
+.credits,
+.director,
+.cinematographer,
+.line {
+  clip-path: polygon(0 0, 100%, 100% 100%, 0% 100%);
+}
+
+.title h1 {
+  position: relative;
+  transform: translateY(40px);
+  will-change: transform;
+}
+
+.info p,
+.line span,
+.credits p,
+.director p,
+.cinematographer p {
+  display: inline-block;
+  position: relative;
+  transform: translateY(20px);
+  will-change: transform;
+}
+
+.project-img {
+  position: absolute;
+  left: 1em;
+  bottom: 1em;
+  width: 75%;
+  height: 75%;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.project-img img {
+  will-change: tranform;
+}
+
+.gallery-wrapper {
+  z-index: 2;
+  overflow: auto;
+  padding: 0.75em;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.gallery {
+  width: 100%;
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+.item {
+  position: relative;
+  flex: 1;
+  background-color: #aeaeae;
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.5s ease-in-out;
+  transition-delay: 0.5s;
+}
+
+.item.active::after {
+  background-color: rbga(0, 0, 0, 0);
+}
+
+@media (max-width: 900px) {
+  .containers {
+    flex-direction: column;
+  }
+
+  .site-info {
+    flex: 0.5;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .header {
+    top: unset;
+    bottom: 1em;
+    transform: none;
+  }
+
+  .site-info .copy{
+    display: none;
+  }
+
+  .project-details{
+    width: calc(100%-1em);
+  }
+  .project-img {
+    width: 93%;
+  }
+
+  .gallery-wrapper {
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gallery {
+    width: 300vw;
+    height: 100px;
+    flex-direction: row;
+  }
+}
