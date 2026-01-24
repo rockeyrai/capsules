@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { AES, enc } from 'crypto-js';
 import "./testModeue.css"
 import Feature13 from '@/src/section/feature13/feature13';
+import Feature14 from '@/src/section/feature14/Feature14';
 
 const decryptMessage = (encryptedMessage: string): any => {
   try {
@@ -45,7 +46,9 @@ const Page: React.FC = () => {
         <p>No data or decryption failed.</p>
       )} */}
       {/* <div className="loader"></div> */}
-      <Feature13/>
+      {/* <Feature13/> */}
+
+      <Feature14/>
     </>
   );
 };
