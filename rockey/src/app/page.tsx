@@ -19,6 +19,7 @@ import Feature11 from "../section/feature11";
 import Feature2 from "../section/feature2/page";
 import CandlestickGame from "../section/stockgame";
 import GameComponent from "../section/stockgame";
+import Feature13 from "../section/feature13/feature13";
 
 const routes = [
   { path: "/", name: "Home" },
@@ -54,6 +55,7 @@ export default function Navbar() {
       {/* <Feature11/>  3 horizontal row with image and text  move  when scroll  */}  for teach-stack useed
       {/* <Feature2/>  instagra story slide  */}  use for hobby page hero
       {/* <GameComponent/>  test game with bug  */}
+      {/* <Feature13/> right sdie has a scrollowing image  and when clicking the image the hero change  */}
     </>
   );
 }

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { AES, enc } from 'crypto-js';
 import "./testModeue.css"
+import Feature13 from '@/src/section/feature13/feature13';
 
 const decryptMessage = (encryptedMessage: string): any => {
   try {
@@ -36,15 +37,16 @@ const Page: React.FC = () => {
   }, []);
 
   return (
-    <div className='h-full w-full bg-[#212121] '>
+    <>
       {/* <h2>Decrypted Output:</h2>
       {decryptedData ? (
         <pre>{JSON.stringify(decryptedData, null, 2)}</pre>
       ) : (
         <p>No data or decryption failed.</p>
       )} */}
-      <div className="loader"></div>
-    </div>
+      {/* <div className="loader"></div> */}
+      <Feature13/>
+    </>
   );
 };
 

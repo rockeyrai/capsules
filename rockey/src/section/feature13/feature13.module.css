@@ -1,26 +1,12 @@
-h1 {
-  color: #fff;
-  font-size: 36px;
-  font-weight: 500;
-}
-
-a,
-p {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.containers {
+.container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   overflow: hidden;
 }
 
-.blurry-prev {
+.blurryPrev {
   position: absolute;
   top: 0;
   left: 0;
@@ -42,7 +28,7 @@ p {
   padding: 1em;
 }
 
-.site-info {
+.siteInfo {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -50,7 +36,7 @@ p {
   border-right: 1px solid rgb(255, 255, 255, 0.1);
 }
 
-nav {
+.nav {
   display: flex;
   grid-area: 1em;
 }
@@ -61,11 +47,11 @@ nav {
   transform: translateY(-50%);
 }
 
-.project-preview {
+.projectPreview {
   flex: 2;
 }
 
-.project-details {
+.projectDetails {
   position: absolute;
   top: 1em;
   left: 1em;
@@ -85,7 +71,7 @@ nav {
 .director,
 .cinematographer,
 .line {
-  clip-path: polygon(0 0, 100%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .title h1 {
@@ -105,32 +91,33 @@ nav {
   will-change: transform;
 }
 
-.project-img {
+.projectImg {
   position: absolute;
   left: 1em;
   bottom: 1em;
   width: 75%;
-  height: 75%;
+  height: 50%;
   overflow: hidden;
   will-change: transform;
 }
 
-.project-img img {
-  will-change: tranform;
+.projectImg img {
+  will-change: transform;
 }
 
-.gallery-wrapper {
+.galleryWrapper {
   z-index: 2;
   overflow: auto;
   padding: 0.75em;
+  width: 10vw;
   background-color: rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(255, 255, 255 0.1);
   backdrop-filter: blur(20px);
 }
 
 .gallery {
-  width: 100%;
-  height: 300vh;
+  width: 10%;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   gap: 0.75em;
@@ -149,7 +136,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
   transition: background-color 0.5s ease-in-out;
   transition-delay: 0.5s;
 }
@@ -159,11 +146,11 @@ nav {
 }
 
 @media (max-width: 900px) {
-  .containers {
+  .container {
     flex-direction: column;
   }
 
-  .site-info {
+  .siteInfo {
     flex: 0.5;
     border-left: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -175,18 +162,18 @@ nav {
     transform: none;
   }
 
-  .site-info .copy{
+  .siteInfo .copy {
     display: none;
   }
 
-  .project-details{
+  .projectDetails {
     width: calc(100%-1em);
   }
-  .project-img {
+  .projectImg {
     width: 93%;
   }
 
-  .gallery-wrapper {
+  .galleryWrapper {
     border-right: none;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
