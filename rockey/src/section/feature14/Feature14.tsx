@@ -30,52 +30,39 @@ const Feature14: React.FC = () => {
     // ------------------------
     // Services selection (CSS MODULE SAFE)
     // ------------------------
-    const services = Array.from(
-      document.querySelectorAll<HTMLElement>(`.${styles.service}`)
-    );
+    const services = gsap.utils.toArray(`.${styles.service}`);
 
     if (!services.length) return;
 
-    // ------------------------
-    // Intersection Observer
-    // ------------------------
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
 
-          const service = entry.target as HTMLElement;
-
-          // ---- Type guard for image container
-          const imgContainer = service.querySelector<HTMLElement>(
-            `.${styles.img}`
-          );
-
+    const observerCallback = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const service = entry.target;
+          const imgContainer = service.querySelector(`.${styles.img}`);
           if (!imgContainer) return;
 
-          // ------------------------
-          // Image width animation
-          // ------------------------
           ScrollTrigger.create({
             trigger: service,
             start: "bottom bottom",
             end: "top top",
             scrub: true,
             onUpdate: (self) => {
-              const progress = self.progress;
-              const newWidth = 30 + 70 * progress;
-
+              let progress = self.progress;
+              let newWidth = 30 + 70 * progress;
               gsap.to(imgContainer, {
-                width: `${newWidth}%`,
+                width: newWidth + "%",
                 duration: 0.1,
                 ease: "none",
               });
             },
           });
 
-          // ------------------------
-          // Service height animation
-          // ------------------------
           ScrollTrigger.create({
             trigger: service,
             start: "top bottom",
@@ -93,16 +80,19 @@ const Feature14: React.FC = () => {
             },
           });
 
-          obs.unobserve(service);
-        });
-      },
-      {
-        root: null,
-        threshold: 0.1,
-      }
+          observer.unobserve(service);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
     );
 
-    services.forEach((service) => observer.observe(service));
+    services.forEach((service) => {
+      observer.observe(service);
+    });
 
     // ------------------------
     // Cleanup
@@ -118,16 +108,15 @@ const Feature14: React.FC = () => {
     <div className={styles.container}>
       <section className={styles.hero} />
 
-      {[1, 2, 3].map((_, idx) => (
-        <section key={idx} className={styles.services}>
-          <div className={styles.servicesHeader}>
-            <div className={styles.col} />
-            <div className={styles.col}>
-              <h1>all services</h1>
-            </div>
+      <section className={styles.services}>
+        <div className={styles.serviceHeader}>
+          <div className={styles.col} />
+          <div className={styles.col}>
+            <h1>all services</h1>
           </div>
-
-          <div className={styles.service}>
+        </div>
+        {[1, 2, 3].map((_, idx) => (
+          <div key={idx} className={styles.service}>
             <div className={styles.serviceInfo}>
               <h1>lore ips</h1>
               <p>lorem ipsum dolor sit amet con</p>
@@ -139,8 +128,8 @@ const Feature14: React.FC = () => {
               </div>
             </div>
           </div>
-        </section>
-      ))}
+        ))}
+      </section>
 
       <div className={styles.footer} />
     </div>

@@ -1,6 +1,6 @@
 .container{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
 
 .hero{
@@ -18,35 +18,35 @@
 }
 
 .services {
-    background: #000;
+    background: #646464;
     padding: 8em 2em;
     display: flex;
     flex-direction: column;
 }
 
-.servicesHeader{
+.serviceHeader{
     width: 100%;
     display: flex;
     gap: 4em;
 }
 
-.servicesHeader .col:nth-child(1){
+.serviceHeader .col:nth-child(1){
     flex: 2;
 }
 
-.servicesHeader .col:nth-child(2){
+.serviceHeader .col:nth-child(2){
     flex: 5;
     padding: 1em;
 }
 
-.services {
+.service {
     display: flex;
     gap: 2em;
     height: 150px;
-    border-top:  1px solid rbga(255,255,255, 0.2);
+    border-top:  1px solid rgba(255,255,255, 0.2);
 }
 
-.services-info {
+.serviceInfo {
     flex: 2;
     width: 100%;
     height: 100%;
@@ -56,7 +56,7 @@
     padding: 1em;
 }
 
-.service-img{
+.serviceImg{
     flex: 5;
     width: 100%;
     height: 100%;
