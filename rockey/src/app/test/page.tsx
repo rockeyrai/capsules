@@ -5,6 +5,7 @@ import { AES, enc } from 'crypto-js';
 import "./testModeue.css"
 import Feature13 from '@/src/section/feature13/feature13';
 import Feature14 from '@/src/section/feature14/Feature14';
+import Feature15 from '@/src/section/feature15/feature15';
 
 const decryptMessage = (encryptedMessage: string): any => {
   try {
@@ -48,7 +49,8 @@ const Page: React.FC = () => {
       {/* <div className="loader"></div> */}
       {/* <Feature13/> */}
 
-      <Feature14/>
+      {/* <Feature14/> */}
+      <Feature15/>
     </>
   );
 };

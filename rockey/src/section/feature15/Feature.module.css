@@ -1,146 +1,140 @@
-section{
-    width: 100%;
-    padding: 2em;
+.section {
+  width: 100%;
+  padding: 2em;
 }
 
-.row{
-    width: 100%;
-    display: flex;
-    gap:2em;
+.row {
+  width: 100%;
+  display: flex;
+  gap: 2em;
 }
 
-.col{
-    flex: 1;
-    display: flex;
-    gap: 1em;
+.col {
+  flex: 1;
+  display: flex;
+  gap: 1em;
 }
 
-.mask{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.img{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 4/5;
+.img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4/5;
 }
 
-.hero h1{
-    margin-top: 3em;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 8.75vw;
-    font-weight: 500;
-    letter-spacing: -0.02vw;
+.hero h1 {
+  margin-top: 3em;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 8.75vw;
+  font-weight: 500;
+  letter-spacing: -0.02vw;
 }
 
-.info{
-    display: flex;
-    justify-content: flex-end;
-    gap: 2em;
+.info {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2em;
 }
 
-.info p{
-    width: 25%;
+.info p {
+  width: 25%;
 }
 
-.hero-imgs{
-    margin-top: 10em;
+.heroImgs {
+  margin-top: 10em;
 }
 
-.clients{
-    display: flex;
+.clients {
+  display: flex;
 }
 
-.clients-list{
-    flex: 1;
+.clientsList {
+  flex: 1;
 }
 
-.clients-imgs{
-    margin-top: 4em;
+.clientsImgs {
+  margin-top: 4em;
 }
 
-.clients-imgs .row{
-    height: 600px;
+.clientsImgs .row {
+  height: 600px;
 }
 
-.product-filters{
-    padding-bottom: 1em;
-    display: flex;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+.productFilters {
+  padding-bottom: 1em;
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.products{
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 
-.about{
-    display: flex;
+.about {
+  display: flex;
 }
 
-.about p{
-    margin-top: 8em;
-    flex: 1;
+.about p {
+  margin-top: 8em;
+  flex: 1;
 }
 
-.outer .row{
-    margin-top: 8em;
+.outro .row {
+  margin-top: 8em;
 }
 
-.img-1 .mask,
-.img-6 .mask,
-.img-12 .mask {
-    background: url("/hero/image1.jpg") no-repeat 50% 50%;
-    background-size: cover;
+.img1 .mask,
+.img6 .mask,
+.img12 .mask {
+  background: url("/hero/image1.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
 
-.img-2 .mask,
-.img-7 .mask,
-.img-14 .mask {
-    background: url("/hero/image1.jpg") no-repeat 50% 50%;
-        background-size: cover;
-
+.img2 .mask,
+.img7 .mask,
+.img14 .mask {
+  background: url("/hero/image1.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
 
-.img-3 .mask,
-.img-15 .mask {
-    background: url("/hero/image1.jpg") no-repeat 50% 50%;
-        background-size: cover;
-
+.img3 .mask,
+.img15 .mask {
+  background: url("/hero/image1.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
 
-.img-4 .mask,
-.img-10 .mask {
-    background: url("/hero/image1.jpg") no-repeat 50% 50%;
-        background-size: cover;
-
+.img4 .mask,
+.img10 .mask {
+  background: url("/hero/image1.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
 
-.img-5 .mask,
-.img-16 .mask,
-.img-11 .mask {
-    background: url("/hero/image1.jpg") no-repeat 50% 50%;
-        background-size: cover;
-
+.img5 .mask,
+.img16 .mask,
+.img11 .mask {
+  background: url("/hero/image1.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
 
-.img-8 .mask,
-.img-17 .mask {
-    background: url("/hero/image1.jpg") no-repeat 50% 50%;
-        background-size: cover;
-
+.img8 .mask,
+.img17 .mask {
+  background: url("/hero/image1.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
 
-.img-9 .mask,
-.img-13 .mask {
-    background: url("/hero/image1.jpg") no-repeat 50% 50%;
-        background-size: cover;
-
+.img9 .mask,
+.img13 .mask {
+  background: url("/hero/image1.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
